@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc43ea6axuklr"]
+
+[ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://Menu.tres" id="1_06t4h"]
+
+[node name="Main Menu" type="Node2D"]
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_colors/font_shadow_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+theme_override_colors/font_outline_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_constants/shadow_offset_x = 16
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 34
+theme_override_constants/shadow_outline_size = -16
+theme_override_font_sizes/font_size = 111
+text = "Kingdom's Last Stand"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 500.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("1_06t4h")
+
+[node name="mian buttons" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="play" type="Button" parent="CenterContainer/mian buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Press Start"
+
+[node name="settings" type="Button" parent="CenterContainer/mian buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CenterContainer/mian buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Leave the Realm"
+
+[node name="settings menu" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_06t4h")
+theme_override_constants/separation = 16
+
+[node name="Back" type="Button" parent="CenterContainer/settings menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Press Start"

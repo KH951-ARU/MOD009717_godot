@@ -1,3 +1,107 @@
-[gd_scene format=3 uid="uid://mxispojtylqn"]
+[gd_scene load_steps=3 format=3 uid="uid://mxispojtylqn"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://Menu.tres" id="1_eeclr"]
+[ext_resource type="Script" uid="uid://dh3sqgfjhhdix" path="res://levels/QuestSelectMenu.gd" id="1_s3oku"]
+
+[node name="QuestSelectionMenu" type="Node2D"]
+script = ExtResource("1_s3oku")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 366.0
+offset_right = 1323.0
+offset_bottom = 166.0
+theme = ExtResource("1_eeclr")
+theme_override_colors/font_color = Color(0.392157, 0.392157, 0.392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_constants/shadow_offset_x = 16
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 34
+theme_override_constants/shadow_outline_size = -16
+theme_override_font_sizes/font_size = 111
+text = "Select Thy Quest"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 367.0
+offset_top = 222.0
+offset_right = 473.0
+offset_bottom = 297.0
+text = "Level 1
+The invasion"
+
+[node name="Button2" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 565.0
+offset_top = 222.0
+offset_right = 700.0
+offset_bottom = 299.0
+text = "Level 2
+The foundations 
+of decay"
+
+[node name="Button3" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 789.0
+offset_top = 222.0
+offset_right = 924.0
+offset_bottom = 299.0
+text = "Level 3
+Scene 24
+"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -1.0
+offset_right = 1657.0
+offset_bottom = 770.0
+color = Color(0.207843, 0.215686, 0.207843, 1)
+
+[node name="L1_Open" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 367.0
+offset_top = 222.0
+offset_right = 472.0
+offset_bottom = 296.0
+color = Color(0.822648, 0.767189, 0, 1)
+
+[node name="L2_Open" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 566.0
+offset_top = 222.0
+offset_right = 700.0
+offset_bottom = 299.0
+color = Color(0.822648, 0.767189, 0, 1)
+
+[node name="L3_Open" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 789.0
+offset_top = 222.0
+offset_right = 923.0
+offset_bottom = 299.0
+color = Color(0.822648, 0.767189, 0, 1)
+
+[node name="L1_locked" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 367.0
+offset_top = 222.0
+offset_right = 472.0
+offset_bottom = 296.0
+color = Color(0.500695, 0.114518, 0.183438, 1)
+
+[node name="L2_locked" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 566.0
+offset_top = 222.0
+offset_right = 700.0
+offset_bottom = 299.0
+color = Color(0.500695, 0.114518, 0.183438, 1)
+
+[node name="L3_locked" type="ColorRect" parent="."]
+z_index = -100
+offset_left = 789.0
+offset_top = 222.0
+offset_right = 923.0
+offset_bottom = 299.0
+color = Color(0.500695, 0.114518, 0.183438, 1)

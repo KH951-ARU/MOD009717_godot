@@ -27,6 +27,7 @@ offset_bottom = 1080.0
 theme = ExtResource("1_06t4h")
 
 [node name="main buttons" type="VBoxContainer" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -46,7 +47,6 @@ theme_override_font_sizes/font_size = 75
 text = "Leave the Realm"
 
 [node name="settings menu" type="VBoxContainer" parent="CenterContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("1_06t4h")
 theme_override_constants/separation = 16

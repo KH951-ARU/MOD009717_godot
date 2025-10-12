@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mxispojtylqn"]
+[gd_scene load_steps=2 format=3 uid="uid://mxispojtylqn"]
 
-[ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://Menu.tres" id="1_eeclr"]
-[ext_resource type="Script" uid="uid://dh3sqgfjhhdix" path="res://levels/QuestSelectMenu.gd" id="1_s3oku"]
+[ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://menu/Menu.tres" id="1_eeclr"]
 
 [node name="QuestSelectionMenu" type="Node2D"]
-script = ExtResource("1_s3oku")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 366.0

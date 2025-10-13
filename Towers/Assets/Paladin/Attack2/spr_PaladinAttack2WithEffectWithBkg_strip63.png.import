@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://grur3n5fc0lm"
-path="res://.godot/imported/seasonal sample (spring).png-e77bfc78b10eca45a07484cc8ad765e3.ctex"
+uid="uid://clkd0d14yjkmg"
+path="res://.godot/imported/spr_PaladinAttack2WithEffectWithBkg_strip63.png-f347912a08fddcef3b4d1177fed4a89a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://seasonal sample (spring).png"
-dest_files=["res://.godot/imported/seasonal sample (spring).png-e77bfc78b10eca45a07484cc8ad765e3.ctex"]
+source_file="res://Towers/Assets/Paladin/Attack2/spr_PaladinAttack2WithEffectWithBkg_strip63.png"
+dest_files=["res://.godot/imported/spr_PaladinAttack2WithEffectWithBkg_strip63.png-f347912a08fddcef3b4d1177fed4a89a.ctex"]
 
 [params]
 

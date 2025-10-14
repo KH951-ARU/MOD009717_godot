@@ -22,29 +22,32 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 367.0
-offset_top = 222.0
-offset_right = 473.0
-offset_bottom = 297.0
+offset_left = 25.0
+offset_top = 199.0
+offset_right = 131.0
+offset_bottom = 274.0
+scale = Vector2(4, 3.04)
 text = "Level 1
 The invasion"
 
 [node name="Button2" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 565.0
-offset_top = 222.0
-offset_right = 700.0
-offset_bottom = 299.0
+offset_left = 581.0
+offset_top = 194.0
+offset_right = 716.0
+offset_bottom = 271.0
+scale = Vector2(4, 3.04)
 text = "Level 2
 The foundations 
 of decay"
 
 [node name="Button3" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 789.0
-offset_top = 222.0
-offset_right = 924.0
-offset_bottom = 299.0
+offset_left = 1269.0
+offset_top = 204.0
+offset_right = 1404.0
+offset_bottom = 281.0
+scale = Vector2(4, 3.04)
 text = "Level 3
 Scene 24
 "
@@ -52,56 +55,62 @@ Scene 24
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -100
 offset_left = -1.0
-offset_right = 1657.0
-offset_bottom = 770.0
+offset_right = 1912.0
+offset_bottom = 1081.0
 color = Color(0.207843, 0.215686, 0.207843, 1)
 
 [node name="L1_Open" type="ColorRect" parent="."]
 z_index = -100
-offset_left = 367.0
-offset_top = 222.0
-offset_right = 472.0
-offset_bottom = 296.0
+offset_left = 25.0
+offset_top = 199.0
+offset_right = 130.0
+offset_bottom = 273.0
+scale = Vector2(4, 3.04)
 color = Color(0.822648, 0.767189, 0, 1)
 
 [node name="L2_Open" type="ColorRect" parent="."]
 z_index = -100
-offset_left = 566.0
-offset_top = 222.0
-offset_right = 700.0
-offset_bottom = 299.0
+offset_left = 582.0
+offset_top = 194.0
+offset_right = 716.0
+offset_bottom = 271.0
+scale = Vector2(4, 3.04)
 color = Color(0.822648, 0.767189, 0, 1)
 
 [node name="L3_Open" type="ColorRect" parent="."]
 z_index = -100
-offset_left = 789.0
-offset_top = 222.0
-offset_right = 923.0
-offset_bottom = 299.0
+offset_left = 1269.0
+offset_top = 204.0
+offset_right = 1403.0
+offset_bottom = 281.0
+scale = Vector2(4, 3.04)
 color = Color(0.822648, 0.767189, 0, 1)
 
 [node name="L1_locked" type="ColorRect" parent="."]
 z_index = -100
-offset_left = 367.0
-offset_top = 222.0
-offset_right = 472.0
-offset_bottom = 296.0
+offset_left = 17.0
+offset_top = 194.0
+offset_right = 122.0
+offset_bottom = 268.0
+scale = Vector2(4, 3.04)
 color = Color(0.500695, 0.114518, 0.183438, 1)
 
 [node name="L2_locked" type="ColorRect" parent="."]
 z_index = -100
-offset_left = 566.0
-offset_top = 222.0
-offset_right = 700.0
-offset_bottom = 299.0
+offset_left = 582.0
+offset_top = 194.0
+offset_right = 716.0
+offset_bottom = 271.0
+scale = Vector2(4, 3.04)
 color = Color(0.500695, 0.114518, 0.183438, 1)
 
 [node name="L3_locked" type="ColorRect" parent="."]
 z_index = -100
-offset_left = 789.0
-offset_top = 222.0
-offset_right = 923.0
-offset_bottom = 299.0
+offset_left = 1269.0
+offset_top = 204.0
+offset_right = 1403.0
+offset_bottom = 281.0
+scale = Vector2(4, 3.04)
 color = Color(0.500695, 0.114518, 0.183438, 1)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3526c4uocoyx"]
+
+[ext_resource type="SpriteFrames" uid="uid://dvbkpbtk5e43d" path="res://Towers/Sketchbooks for towers/PalidenSpriteAnims.tres" id="1_u67br"]
+
+[node name="Paliden" type="Node2D"]
+
+[node name="palidien" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_u67br")
+animation = &"Attack"

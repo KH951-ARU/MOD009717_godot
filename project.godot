@@ -13,11 +13,11 @@ config_version=5
 config/name="Tower defence GDT(Kingdom's Last Stand)"
 run/main_scene="uid://bc43ea6axuklr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Assets/menu assets/icon.svg"
+config/icon="res://General Assets/menu assets/icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://Assets/menu assets/default_bus_layout.tres"
+buses/default_bus_layout="res://General Assets/menu assets/default_bus_layout.tres"
 
 [autoload]
 

@@ -142,7 +142,7 @@ pathfollower = NodePath("..")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Goblin"]
 sprite_frames = SubResource("SpriteFrames_d5sq7")
 animation = &"Attack"
-frame_progress = 0.348938
+frame_progress = 0.451088
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goblin"]
 scale = Vector2(2.5, 2.5)

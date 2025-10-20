@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var path = preload("res://Levels/Level assets/Level 1 path.tscn")
-
+@export var EnermyScene :PackedScene
+@export var path : Path2D
 func _on_timer_timeout():
-	var tempPath = path.instantiate()
-	add_child(tempPath)
+	var tempPath = EnermyScene.instantiate()
+	path.add_child(tempPath)
 	

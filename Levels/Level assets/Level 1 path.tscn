@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://2v6tdamvaa7a"]
+[gd_scene load_steps=4 format=3 uid="uid://2v6tdamvaa7a"]
 
 [ext_resource type="PackedScene" uid="uid://bpmvokoprrd4e" path="res://General Assets/Enermies/enermies/skeleton.tscn" id="1_74rb2"]
+[ext_resource type="PackedScene" uid="uid://dkqrk7qasfguf" path="res://General Assets/Enermies/enermies/Goblin.tscn" id="2_tnwue"]
 
 [sub_resource type="Curve2D" id="Curve2D_t3muv"]
 _data = {
@@ -12,6 +13,9 @@ point_count = 14
 position = Vector2(16, -8)
 curve = SubResource("Curve2D_t3muv")
 
-[node name="skeleton" parent="." instance=ExtResource("1_74rb2")]
+[node name="Skeleton" parent="." instance=ExtResource("1_74rb2")]
 position = Vector2(122, 23)
 rotation = 1.38097
+
+[node name="Goblin" parent="." instance=ExtResource("2_tnwue")]
+position = Vector2(122, 23)

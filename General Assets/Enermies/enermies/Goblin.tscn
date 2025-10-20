@@ -1,0 +1,149 @@
+[gd_scene load_steps=21 format=3 uid="uid://dkqrk7qasfguf"]
+
+[ext_resource type="Script" uid="uid://dli4ocy4slo8e" path="res://Scripts/Enermies/Goblin.gd" id="1_x21cb"]
+[ext_resource type="Texture2D" uid="uid://di4lhgexwrah5" path="res://General Assets/Enermies/assets/Goblin/Attack3.png" id="2_8f520"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x21cb"]
+atlas = ExtResource("2_8f520")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f520"]
+atlas = ExtResource("2_8f520")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5sq7"]
+atlas = ExtResource("2_8f520")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clsgb"]
+atlas = ExtResource("2_8f520")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqlwk"]
+atlas = ExtResource("2_8f520")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt3ft"]
+atlas = ExtResource("2_8f520")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xjnb"]
+atlas = ExtResource("2_8f520")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y00v4"]
+atlas = ExtResource("2_8f520")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uin5j"]
+atlas = ExtResource("2_8f520")
+region = Rect2(1200, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfbeo"]
+atlas = ExtResource("2_8f520")
+region = Rect2(1350, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj42w"]
+atlas = ExtResource("2_8f520")
+region = Rect2(1500, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rutll"]
+atlas = ExtResource("2_8f520")
+region = Rect2(1650, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f73g"]
+atlas = ExtResource("2_8f520")
+region = Rect2(0, 0, 149, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0dw5"]
+atlas = ExtResource("2_8f520")
+region = Rect2(149, 0, 149, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg4sx"]
+atlas = ExtResource("2_8f520")
+region = Rect2(298, 0, 149, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gug7r"]
+atlas = ExtResource("2_8f520")
+region = Rect2(447, 0, 149, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5sq7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x21cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f520")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5sq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clsgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqlwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt3ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xjnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y00v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uin5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfbeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj42w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rutll")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f73g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0dw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg4sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gug7r")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b87xn"]
+radius = 11.0805
+
+[node name="PathFollow2D" type="PathFollow2D"]
+rotates = false
+
+[node name="Goblin" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spriteholder", "pathfollower")]
+script = ExtResource("1_x21cb")
+spriteholder = NodePath("AnimatedSprite2D")
+pathfollower = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Goblin"]
+sprite_frames = SubResource("SpriteFrames_d5sq7")
+animation = &"Attack"
+frame_progress = 0.348938
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goblin"]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_b87xn")

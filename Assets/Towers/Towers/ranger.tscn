@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcnh1fok4tta"]
+
+[ext_resource type="SpriteFrames" uid="uid://cvq8gsfg0uiy3" path="res://Assets/Towers/Sketchbooks for towers/RangerSpriteANims.tres" id="1_wgbgo"]
+
+[node name="RangerT1" type="Node2D"]
+
+[node name="Archer" type="AnimatedSprite2D" parent="."]
+position = Vector2(211, 211)
+scale = Vector2(4.3, 4.3)
+sprite_frames = ExtResource("1_wgbgo")
+animation = &"RangedAttack"
+frame_progress = 0.140271

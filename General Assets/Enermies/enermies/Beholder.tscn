@@ -91,6 +91,7 @@ radius = 11.0805
 
 [node name="PathFollow2D" type="PathFollow2D"]
 rotates = false
+loop = false
 
 [node name="Beholder" type="CharacterBody2D" parent="."]
 script = ExtResource("1_x8r4i")
@@ -98,7 +99,7 @@ script = ExtResource("1_x8r4i")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Beholder"]
 sprite_frames = SubResource("SpriteFrames_d5sq7")
 animation = &"Walk"
-frame_progress = 0.447949
+frame_progress = 0.790584
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beholder"]
 scale = Vector2(2.5, 2.5)

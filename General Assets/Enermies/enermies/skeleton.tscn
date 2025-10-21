@@ -8,6 +8,7 @@ radius = 11.0805
 
 [node name="PathFollow2D" type="PathFollow2D"]
 rotates = false
+loop = false
 
 [node name="skeleton" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spriteholder", "pathfollower")]
 script = ExtResource("1_2jpfd")

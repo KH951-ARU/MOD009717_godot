@@ -1,10 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3526c4uocoyx"]
+[gd_scene load_steps=5 format=3 uid="uid://c3526c4uocoyx"]
 
+[ext_resource type="Script" uid="uid://b0ifp57hqi35j" path="res://Scripts/Towers/paliden.gd" id="1_g6f8q"]
 [ext_resource type="SpriteFrames" uid="uid://dvbkpbtk5e43d" path="res://General Assets/Towers/Sketchbooks for towers/PalidenSpriteAnims.tres" id="1_u67br"]
 
-[node name="Paliden" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnfrm"]
+size = Vector2(54, 43)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6f8q"]
+radius = 200.0
+
+[node name="Paliden" type="StaticBody2D"]
+script = ExtResource("1_g6f8q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vnfrm")
+
+[node name="Area" type="Marker2D" parent="."]
 
 [node name="palidien" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_u67br")
 animation = &"idle"
 frame_progress = 0.258099
+
+[node name="Tower" type="Area2D" parent="palidien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="palidien/Tower"]
+shape = SubResource("CircleShape2D_g6f8q")

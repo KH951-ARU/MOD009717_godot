@@ -1,20 +1,21 @@
-extends Button
+extends Node2D
 
-@onready var  pause_menu = $"../PauseMenu2"
+
 var paused = false
+@export var pausesyst : pausemenu
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Halt"):
 		pass
 
 func pauseMenu():
 	if paused:
-		pause_menu.hide()
-		get_tree().paused = false
+		pausesyst.hide()
+		Engine.time_scale = 1
 	else:
-		pause_menu.show()
-		get_tree().paused = true
-
+		pausesyst.show()
+		Engine.time_scale = 0
+	
 	paused = !paused
 	

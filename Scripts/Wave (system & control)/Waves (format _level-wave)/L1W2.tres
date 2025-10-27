@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("4_u8sqy")
-enemy_sequneces = Array[ExtResource("1_g8jcq")]([ExtResource("2_m60tj"), ExtResource("3_fglba")])
+enemy_sequneces = Array[ExtResource("1_g8jcq")]([ExtResource("3_fglba"), ExtResource("2_m60tj")])
 metadata/_custom_type_script = "uid://oi7o3nujy2r1"

@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cus8os27gf26v"]
+[gd_scene load_steps=5 format=3 uid="uid://cus8os27gf26v"]
 
 [ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://General Assets/menu assets/Menu.tres" id="1_4jg2x"]
+[ext_resource type="Script" uid="uid://bxsxgykoqn80t" path="res://Scripts/Level/pause_menu.gd" id="2_0jkog"]
+[ext_resource type="Shader" uid="uid://c1dekdu6qwc7p" path="res://GUI/pause_menu.gdshader" id="2_aj5rh"]
 
-[node name="PauseMenu" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jkog"]
+shader = ExtResource("2_aj5rh")
+shader_parameter/amount = 0.0
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("pauseMenuScreen", "pausebutton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,30 +16,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4jg2x")
+script = ExtResource("2_0jkog")
+pauseMenuScreen = NodePath("pausemenu")
+pausebutton = NodePath("ii button")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="pausemenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="pausemenu"]
+material = SubResource("ShaderMaterial_0jkog")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(4.08, 2.64)
 color = Color(0.241156, 0.241156, 0.241156, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="pausemenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -50.5
+offset_right = 80.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="pausemenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="pausemenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
 
-[node name="Thy setting" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Thy setting" type="Button" parent="pausemenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Thy setting"
 
-[node name="Return to the castle" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Return to the castle" type="Button" parent="pausemenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Return to the castle"
+
+[node name="ii button" type="CanvasLayer" parent="."]
+
+[node name="pause" type="Button" parent="ii button"]
+offset_left = 1766.0
+offset_top = 8.0
+offset_right = 1803.0
+offset_bottom = 43.0
+scale = Vector2(3.76, 2.32)
+text = "II"
+
+[node name="play" type="Button" parent="ii button"]
+offset_left = 1613.0
+offset_top = 7.0
+offset_right = 1650.0
+offset_bottom = 42.0
+scale = Vector2(3.76, 2.32)
+text = "I>"
+
+[connection signal="pressed" from="pausemenu/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pausemenu/MarginContainer/VBoxContainer/Thy setting" to="." method="_on_thy_setting_pressed"]
+[connection signal="pressed" from="pausemenu/MarginContainer/VBoxContainer/Return to the castle" to="." method="_on_return_to_the_castle_pressed"]
+[connection signal="pressed" from="ii button/pause" to="." method="_on_pause_pressed"]

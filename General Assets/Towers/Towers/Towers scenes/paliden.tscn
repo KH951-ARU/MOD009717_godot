@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3526c4uocoyx"]
+
+[ext_resource type="Script" uid="uid://b0ifp57hqi35j" path="res://Scripts/Towers/paliden.gd" id="1_y5mfy"]
+[ext_resource type="SpriteFrames" uid="uid://dvbkpbtk5e43d" path="res://General Assets/Towers/Sketchbooks for towers/PalidenSpriteAnims.tres" id="2_f703l"]
+[ext_resource type="PackedScene" uid="uid://cewo31mdqgrxi" path="res://General Assets/Towers/Towers/Towers scenes/attacksfx paliden.tscn" id="2_i2wyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnfrm"]
+size = Vector2(54, 43)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6f8q"]
+radius = 200.0
+
+[node name="Paliden" type="StaticBody2D" node_paths=PackedStringArray("spriteholder", "towers")]
+script = ExtResource("1_y5mfy")
+Spell = ExtResource("2_i2wyq")
+spriteholder = NodePath("palidien")
+towers = NodePath("palidien/Tower")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vnfrm")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(33, 0)
+
+[node name="palidien" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_f703l")
+animation = &"RangedAttack"
+frame_progress = 0.726275
+
+[node name="Tower" type="Area2D" parent="palidien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="palidien/Tower"]
+shape = SubResource("CircleShape2D_g6f8q")
+
+[node name="spellcontainer" type="Node" parent="."]
+
+[connection signal="body_entered" from="palidien/Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="palidien/Tower" to="." method="_on_tower_body_exited"]

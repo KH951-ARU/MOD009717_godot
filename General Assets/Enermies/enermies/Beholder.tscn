@@ -89,7 +89,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_b87xn"]
 radius = 11.0805
 
-[node name="PathFollow2D" type="PathFollow2D"]
+[node name="Beholder" type="PathFollow2D" groups=["EnemyPresent"]]
 rotates = false
 loop = false
 

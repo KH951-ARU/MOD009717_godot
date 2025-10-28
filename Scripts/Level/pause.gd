@@ -11,10 +11,12 @@ func _process(_delta: float) -> void:
 
 func pauseMenu():
 	if paused:
-		pausesyst.hide()
+		pausesyst.show()
+		print("paused")
 		Engine.time_scale = 1
 	else:
-		pausesyst.show()
+		pausesyst.hide()
+		print("resumed")
 		Engine.time_scale = 0
 	
 	paused = !paused

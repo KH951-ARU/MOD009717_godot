@@ -10,9 +10,10 @@ size = Vector2(54, 43)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6f8q"]
 radius = 200.0
 
-[node name="Paliden" type="StaticBody2D" node_paths=PackedStringArray("spriteholder", "towers")]
+[node name="Paliden" type="StaticBody2D" node_paths=PackedStringArray("spellcontainer", "spriteholder", "towers")]
 script = ExtResource("1_y5mfy")
 Spell = ExtResource("2_i2wyq")
+spellcontainer = NodePath("spellcontainer")
 spriteholder = NodePath("palidien")
 towers = NodePath("palidien/Tower")
 
@@ -25,8 +26,8 @@ position = Vector2(33, 0)
 
 [node name="palidien" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_f703l")
-animation = &"RangedAttack"
-frame_progress = 0.726275
+animation = &"idle"
+frame_progress = 0.710916
 
 [node name="Tower" type="Area2D" parent="palidien"]
 

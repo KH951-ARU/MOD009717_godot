@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c1nmhi74l2d1w"]
+[gd_scene load_steps=12 format=4 uid="uid://c1nmhi74l2d1w"]
 
 [ext_resource type="TileSet" uid="uid://bgdgdaitscbig" path="res://General Assets/TDSetup/tileassets/level_1_tileMap.tres" id="1_d6xrh"]
 [ext_resource type="Script" uid="uid://beqoj1paem51p" path="res://Scripts/Level/path_spawner.gd" id="2_d6xrh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://co036lyi2m8hf" path="res://Scripts/Level/pause.gd" id="8_5cntx"]
 [ext_resource type="Resource" uid="uid://vfreotj6qc5l" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W1.tres" id="9_5cntx"]
 [ext_resource type="PackedScene" uid="uid://c3526c4uocoyx" path="res://General Assets/Towers/Towers/Towers scenes/paliden.tscn" id="10_24xcu"]
+[ext_resource type="PackedScene" uid="uid://cewo31mdqgrxi" path="res://General Assets/Towers/Towers/Towers scenes/attacksfx paliden.tscn" id="10_jrmf6"]
 
 [node name="Level 1" type="Node2D" node_paths=PackedStringArray("pausesyst")]
 script = ExtResource("8_5cntx")
@@ -58,6 +59,9 @@ autostart = true
 
 [node name="Path2D" parent="PathSpawner" instance=ExtResource("3_xapvs")]
 waves = Array[ExtResource("5_nfc5j")]([ExtResource("9_5cntx"), ExtResource("6_hygg8"), null, null, null, null])
+
+[node name="Heavenly Smite" parent="PathSpawner" instance=ExtResource("10_jrmf6")]
+position = Vector2(260, 400)
 
 [node name="Tower" type="Node2D" parent="." groups=["tower"]]
 

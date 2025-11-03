@@ -23,3 +23,6 @@ frame_progress = 0.768058
 [node name="CollisionShape2D" type="CollisionShape2D" parent="skeleton"]
 scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_b87xn")
+
+[node name="attackPOS" type="Marker2D" parent="skeleton"]
+position = Vector2(32, 0)

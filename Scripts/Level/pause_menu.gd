@@ -4,6 +4,7 @@ class_name pausemenu
 @export var pausebutton : CanvasLayer
 @onready var level  = $"../../"
 func _on_resume_pressed() -> void:
+	
 	level.pauseMenu()
 
 

@@ -22,7 +22,6 @@ scale = Vector2(2.72, 2.64)
 zoom = Vector2(1, 0.86)
 
 [node name="PauseMenu" parent="Camera2D" instance=ExtResource("7_i8lqa")]
-process_mode = 3
 z_index = 20
 
 [node name="Map" type="Label" parent="."]

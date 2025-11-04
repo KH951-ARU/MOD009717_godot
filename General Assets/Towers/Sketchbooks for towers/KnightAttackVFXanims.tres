@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://c36uq7bsft3cu"]
+
+[ext_resource type="Texture2D" uid="uid://uy5x8urg2o4p" path="res://General Assets/Towers/Assets/Knight/Soldier-Attack01_Effect.png" id="1_pqv04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io7v1"]
+atlas = ExtResource("1_pqv04")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvc7m"]
+atlas = ExtResource("1_pqv04")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6yb0"]
+atlas = ExtResource("1_pqv04")
+region = Rect2(400, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_io7v1")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_mvc7m")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_x6yb0")
+}],
+"loop": true,
+"name": &"air razor",
+"speed": 10.0
+}]

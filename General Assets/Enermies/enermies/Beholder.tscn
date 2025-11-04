@@ -89,12 +89,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_b87xn"]
 radius = 11.0805
 
-[node name="Beholder" type="PathFollow2D" groups=["EnemyPresent"]]
+[node name="PathFollow2D" type="PathFollow2D" groups=["EnemyPresent"]]
 rotates = false
 loop = false
 
-[node name="Beholder" type="CharacterBody2D" parent="."]
+[node name="Beholder" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spriteholder", "pathfollower", "AttackPos")]
 script = ExtResource("1_x8r4i")
+spriteholder = NodePath("AnimatedSprite2D")
+pathfollower = NodePath("..")
+AttackPos = NodePath("../attackPOS")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Beholder"]
 sprite_frames = SubResource("SpriteFrames_d5sq7")

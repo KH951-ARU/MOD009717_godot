@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://cpjvi3b6pk0vw"]
+
+[ext_resource type="Script" uid="uid://cten2b3pqjcca" path="res://Scripts/Wave (system & control)/EnemySequence.gd" id="1_g8b7s"]
+[ext_resource type="Script" uid="uid://oi7o3nujy2r1" path="res://Scripts/Wave (system & control)/wave.gd" id="2_tixqv"]
+
+[resource]
+script = ExtResource("2_tixqv")
+enemy_sequneces = Array[ExtResource("1_g8b7s")]([])
+metadata/_custom_type_script = "uid://oi7o3nujy2r1"

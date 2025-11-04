@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemySequence" load_steps=2 format=3 uid="uid://jaxyswt5f6ho"]
+
+[ext_resource type="Script" uid="uid://cten2b3pqjcca" path="res://Scripts/Wave (system & control)/EnemySequence.gd" id="1_dyct3"]
+
+[resource]
+script = ExtResource("1_dyct3")
+EnemyIndex = 3
+amount = 5
+time = 10.0
+metadata/_custom_type_script = "uid://cten2b3pqjcca"

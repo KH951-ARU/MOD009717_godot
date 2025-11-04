@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c1nmhi74l2d1w"]
+[gd_scene load_steps=12 format=4 uid="uid://c1nmhi74l2d1w"]
 
 [ext_resource type="TileSet" uid="uid://bgdgdaitscbig" path="res://General Assets/TDSetup/tileassets/level_1_tileMap.tres" id="1_d6xrh"]
 [ext_resource type="Script" uid="uid://beqoj1paem51p" path="res://Scripts/Level/path_spawner.gd" id="2_d6xrh"]
@@ -9,13 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cus8os27gf26v" path="res://GUI/pause_menu.tscn" id="7_i8lqa"]
 [ext_resource type="Script" uid="uid://co036lyi2m8hf" path="res://Scripts/Level/pause.gd" id="8_5cntx"]
 [ext_resource type="Resource" uid="uid://vfreotj6qc5l" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W1.tres" id="9_5cntx"]
-[ext_resource type="Resource" uid="uid://c2lw30u4uxo25" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W3.tres" id="10_8eyy0"]
 [ext_resource type="PackedScene" uid="uid://c3526c4uocoyx" path="res://General Assets/Towers/Towers/Towers scenes/paliden.tscn" id="10_24xcu"]
-[ext_resource type="Resource" uid="uid://b2ud5smhku63r" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W4.tres" id="11_0pbd5"]
 [ext_resource type="PackedScene" uid="uid://bn026odhju552" path="res://General Assets/Towers/Towers/Towers scenes/Ranger.tscn" id="11_jrmf6"]
-[ext_resource type="PackedScene" uid="uid://b5egg1eswc1ac" path="res://General Assets/Towers/Towers/Towers scenes/Knight.tscn" id="12_6kr8n"]
-[ext_resource type="Resource" uid="uid://cb6j0cb3uafbb" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W5.tres" id="12_hmf6v"]
-[ext_resource type="Resource" uid="uid://cpjvi3b6pk0vw" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W6.tres" id="13_devep"]
 
 [node name="Level 1" type="Node2D" node_paths=PackedStringArray("pausesyst")]
 script = ExtResource("8_5cntx")
@@ -62,7 +57,7 @@ path = NodePath("Path2D")
 autostart = true
 
 [node name="Path2D" parent="PathSpawner" instance=ExtResource("3_xapvs")]
-waves = Array[ExtResource("5_nfc5j")]([ExtResource("9_5cntx"), ExtResource("6_hygg8"), ExtResource("10_8eyy0"), ExtResource("11_0pbd5"), ExtResource("12_hmf6v"), ExtResource("13_devep")])
+waves = Array[ExtResource("5_nfc5j")]([ExtResource("9_5cntx"), ExtResource("6_hygg8"), null, null, null, null])
 
 [node name="Tower" type="Node2D" parent="." groups=["tower"]]
 
@@ -71,8 +66,5 @@ position = Vector2(529, 371)
 
 [node name="Ranger" parent="Tower" instance=ExtResource("11_jrmf6")]
 position = Vector2(878, 173)
-
-[node name="Knight" parent="Tower" instance=ExtResource("12_6kr8n")]
-position = Vector2(989, 594)
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]

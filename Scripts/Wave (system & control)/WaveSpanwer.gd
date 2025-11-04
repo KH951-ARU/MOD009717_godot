@@ -25,7 +25,10 @@ func spawn_next_waves():
 	spawn_unit(waves[spawnerIndex].enemy_sequneces[sequneceIndex].EnemyIndex, waves[spawnerIndex].enemy_sequneces[sequneceIndex].time,waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount)
 	status = 'idle'
 	currentWave += 1
-	await get_tree().create_timer(20).timeout
+	if status == 'spawning':
+		status = 'idle'
+		spawnerIndex += 1
+		await get_tree().create_timer(60).timeout
 
 func spawn_unit(enemy_index, time, amount):
 	for i in amount:

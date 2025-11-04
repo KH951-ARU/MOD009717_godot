@@ -135,10 +135,11 @@ radius = 11.0805
 rotates = false
 loop = false
 
-[node name="Goblin" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spriteholder", "pathfollower")]
+[node name="Goblin" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spriteholder", "pathfollower", "AttackPos")]
 script = ExtResource("1_x21cb")
 spriteholder = NodePath("AnimatedSprite2D")
 pathfollower = NodePath("..")
+AttackPos = NodePath("../attackPOS")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Goblin"]
 sprite_frames = SubResource("SpriteFrames_d5sq7")

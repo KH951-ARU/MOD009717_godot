@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dw64kjcewfdc"]
+
+[ext_resource type="Texture2D" uid="uid://dlxsovu7q3ihm" path="res://General Assets/Towers/Assets/Ranger/spr_ArcherAttack_strip_NoBkg.png" id="1_n1glq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00qpp"]
+atlas = ExtResource("1_n1glq")
+region = Rect2(2236, 0, 132, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv0sm"]
+atlas = ExtResource("1_n1glq")
+region = Rect2(2064, 0, 132, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gky2x"]
+atlas = ExtResource("1_n1glq")
+region = Rect2(1892, 0, 132, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv23w"]
+atlas = ExtResource("1_n1glq")
+region = Rect2(1710, 0, 132, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvatj"]
+atlas = ExtResource("1_n1glq")
+region = Rect2(1881, 0, 132, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_00qpp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_wv0sm")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_gky2x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_iv23w")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_cvatj")
+}],
+"loop": true,
+"name": &"arrow piece",
+"speed": 10.0
+}]

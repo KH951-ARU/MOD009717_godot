@@ -144,28 +144,28 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_edilk")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_edf20")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_vgflm")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_aavif")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_o7rjv")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_pwiv1")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_cv2ap")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_yo44k")
 }],
 "loop": true,
@@ -185,7 +185,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lqnhw")
 }],
-"loop": true,
+"loop": false,
 "name": &"RangedAttack",
 "speed": 5.0
 }]

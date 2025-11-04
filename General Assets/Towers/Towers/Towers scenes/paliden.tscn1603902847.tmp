@@ -26,7 +26,8 @@ position = Vector2(33, 0)
 
 [node name="palidien" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_f703l")
-animation = &"Attack"
+animation = &"idle"
+frame_progress = 0.710916
 
 [node name="Tower" type="Area2D" parent="palidien"]
 

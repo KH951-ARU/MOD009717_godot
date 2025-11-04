@@ -1,12 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcnh1fok4tta"]
+[gd_scene load_steps=6 format=3 uid="uid://bn026odhju552"]
 
-[ext_resource type="SpriteFrames" uid="uid://cvq8gsfg0uiy3" path="res://General Assets/Towers/Sketchbooks for towers/RangerSpriteANims.tres" id="1_wgbgo"]
+[ext_resource type="Script" uid="uid://dktivfa7y3lqj" path="res://Scripts/Towers/Ranger.gd" id="1_gsfjj"]
+[ext_resource type="PackedScene" uid="uid://b7qb6j30cu16i" path="res://General Assets/Towers/Towers/Towers scenes/attacksfx Ranger.tscn" id="2_qup4g"]
+[ext_resource type="SpriteFrames" uid="uid://cvq8gsfg0uiy3" path="res://General Assets/Towers/Sketchbooks for towers/RangerSpriteANims.tres" id="3_ne1pj"]
 
-[node name="RangerT1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnfrm"]
+size = Vector2(54, 43)
 
-[node name="Archer" type="AnimatedSprite2D" parent="."]
-position = Vector2(211, 211)
-scale = Vector2(4.3, 4.3)
-sprite_frames = ExtResource("1_wgbgo")
-animation = &"RangedAttack"
-frame_progress = 0.140271
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6f8q"]
+radius = 200.0
+
+[node name="Ranger" type="StaticBody2D" node_paths=PackedStringArray("spellcontainer", "spriteholder", "towers")]
+script = ExtResource("1_gsfjj")
+Spell = ExtResource("2_qup4g")
+spellcontainer = NodePath("spellcontainer")
+spriteholder = NodePath("Ranger")
+towers = NodePath("Ranger/Tower")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vnfrm")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(33, 0)
+
+[node name="Ranger" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_ne1pj")
+animation = &"Idle"
+
+[node name="Tower" type="Area2D" parent="Ranger"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranger/Tower"]
+shape = SubResource("CircleShape2D_g6f8q")
+
+[node name="spellcontainer" type="Node" parent="."]
+
+[connection signal="body_entered" from="Ranger/Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Ranger/Tower" to="." method="_on_tower_body_exited"]

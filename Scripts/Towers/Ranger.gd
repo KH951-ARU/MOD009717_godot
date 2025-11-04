@@ -6,12 +6,12 @@ var tracePath
 var currentTarget = []
 var current
 @export var spellcontainer : Node
-@onready var sprite = get_node('palidien')
+@onready var sprite = get_node('Ranger')
 @export var spriteholder : AnimatedSprite2D
 @export var towers : Area2D
 
 func _ready() -> void:
-	spriteholder.play("idle")
+	spriteholder.play("Idle")
 	
 
 func _process(delta: float) -> void:
@@ -47,12 +47,11 @@ func _on_tower_body_entered(body):
 		tempSpell.target = currentTarget
 		spellcontainer.call_deferred("add_child",tempSpell)
 		tempSpell.global_position = $Aim.global_position
-		
 
 func _on_tower_body_exited(body: Node2D):
 	#currentTarget = towers.get_overlapping_bodies()
 	#if currentTarget != towers.get_overlapping_bodies():
 		#return
 	await spriteholder.animation_finished
-	spriteholder.play("idle")
+	spriteholder.play("Idle")
 	pass

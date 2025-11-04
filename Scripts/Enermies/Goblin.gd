@@ -4,7 +4,7 @@ class_name goblin
 @export var positioncache : Vector2 
 @export var spriteholder : AnimatedSprite2D
 @export var pathfollower : PathFollow2D
-@export var health = 10
+@export var health = 15
 @export var AttackPos : Marker2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:

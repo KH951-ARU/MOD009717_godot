@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcerp4c5ulo7q"]
+
+[ext_resource type="Script" uid="uid://b4mtrqmfrju3g" path="res://GUI/tower buttons scripts/tower_(ranger)panel.gd" id="1_rxs2e"]
+[ext_resource type="Texture2D" uid="uid://d2cjd31hy3kw6" path="res://GUI/Logo ranger.tres" id="2_rxs2e"]
+
+[node name="Ranger Tower" type="Panel"]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 0.007
+anchor_right = 0.029
+anchor_bottom = 0.052
+offset_left = 0.32
+offset_top = 0.44
+offset_right = 0.32
+offset_bottom = -0.16
+script = ExtResource("1_rxs2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(1.23077, 0.842105)
+texture = ExtResource("2_rxs2e")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d2cjd31hy3kw6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bfo4m"]
+load_path = "res://.godot/imported/spr_ArcherIdle_strip_NoBkg.png-d2ba9ccf09e52093a7c41a2abe266296.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_bfo4m")
+region = Rect2(433, 38, 26, 38)

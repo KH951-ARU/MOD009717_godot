@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dty4hitb1logn"]
+
+[ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://General Assets/menu assets/Menu.tres" id="1_nexes"]
+[ext_resource type="PackedScene" uid="uid://dcerp4c5ulo7q" path="res://GUI/Tower (ranger)panel.tscn" id="2_i10yr"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(170, 840)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 840.0
+grow_horizontal = 0
+theme = ExtResource("1_nexes")
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 93.0
+offset_bottom = 288.0
+scale = Vector2(3, 3)
+theme = ExtResource("1_nexes")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Ranger Tower" parent="Panel/FlowContainer" instance=ExtResource("2_i10yr")]
+layout_mode = 2

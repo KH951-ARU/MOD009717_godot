@@ -11,7 +11,8 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -256.0
-offset_bottom = 840.0
+offset_top = 128.0
+offset_bottom = 968.0
 grow_horizontal = 0
 theme = ExtResource("1_nexes")
 

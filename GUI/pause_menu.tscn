@@ -22,6 +22,7 @@ pauseMenuScreen = NodePath("pausemenu")
 pausebutton = NodePath("ii button")
 
 [node name="pausemenu" type="CanvasLayer" parent="."]
+process_mode = 3
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="pausemenu"]
@@ -60,6 +61,7 @@ layout_mode = 2
 text = "Return to the castle"
 
 [node name="ii button" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="pause" type="Button" parent="ii button"]
 offset_left = 1766.0

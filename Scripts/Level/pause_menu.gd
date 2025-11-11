@@ -2,7 +2,7 @@ extends Control
 class_name pausemenu
 @export var pauseMenuScreen : CanvasLayer
 @export var pausebutton : CanvasLayer
-@onready var level  = $"../../"
+@onready var level  = $"../.."
 func _on_resume_pressed() -> void:
 	
 	level.pauseMenu()

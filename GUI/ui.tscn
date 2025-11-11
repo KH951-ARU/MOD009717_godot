@@ -22,10 +22,34 @@ offset_left = 24.0
 offset_top = 24.0
 offset_right = 93.0
 offset_bottom = 288.0
-scale = Vector2(3, 3)
+scale = Vector2(3.10271, 3)
 theme = ExtResource("1_nexes")
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 
 [node name="Ranger Tower" parent="Panel/FlowContainer" instance=ExtResource("2_i10yr")]
+layout_mode = 2
+
+[node name="empty" type="Panel" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="empty2" type="Panel" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="empty3" type="Panel" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="empty4" type="Panel" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="empty5" type="Panel" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="empty6" type="Panel" parent="Panel/FlowContainer"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2

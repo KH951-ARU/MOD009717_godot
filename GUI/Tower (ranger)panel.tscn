@@ -11,7 +11,7 @@ offset_bottom = 30.0
 script = ExtResource("1_rxs2e")
 tower1 = ExtResource("2_06xx2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RangerSprite" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
 scale = Vector2(0.615385, 0.421053)
 texture = ExtResource("2_rxs2e")

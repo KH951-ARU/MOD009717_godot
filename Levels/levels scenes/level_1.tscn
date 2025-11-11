@@ -20,7 +20,7 @@ script = ExtResource("8_5cntx")
 pausesyst = NodePath("Camera2D/PauseMenu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(963, 632)
+position = Vector2(962, 626)
 scale = Vector2(2.72, 2.64)
 zoom = Vector2(1, 0.86)
 

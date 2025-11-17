@@ -23,6 +23,7 @@ buses/default_bus_layout="res://General Assets/menu assets/default_bus_layout.tr
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 window/size/initial_screen=1
 window/stretch/mode="canvas_items"
 

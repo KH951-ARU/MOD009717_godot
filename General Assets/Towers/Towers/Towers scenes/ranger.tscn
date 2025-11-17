@@ -37,7 +37,6 @@ shape = SubResource("CircleShape2D_g6f8q")
 [node name="spellcontainer" type="Node" parent="."]
 
 [node name="Area" type="Panel" parent="."]
-visible = false
 self_modulate = Color(0.203922, 0.960784, 0.807843, 0.627451)
 offset_left = -152.0
 offset_top = -144.0

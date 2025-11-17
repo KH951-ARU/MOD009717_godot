@@ -337,14 +337,13 @@ texture = ExtResource("1_dehmr")
 15:15/0 = 0
 
 [resource]
-tile_shape = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "ground 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "War Path & tower exculsion"
-terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_0/terrain_1/color = Color(0.819538, 0.614028, 0, 1)
 terrain_set_0/terrain_2/name = "War path edges/cliffs"
-terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
+terrain_set_0/terrain_2/color = Color(1, 0, 0, 1)
 terrain_set_0/terrain_3/name = "water"
 terrain_set_0/terrain_3/color = Color(0.270883, 0.397615, 0.899531, 1)
 sources/0 = SubResource("TileSetAtlasSource_3hls8")

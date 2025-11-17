@@ -24,7 +24,7 @@ func show_control():
 	
 
 func _on_next_pressed() -> void:
-	
+	pass
 
 
 func _on_skip_pressed() -> void:

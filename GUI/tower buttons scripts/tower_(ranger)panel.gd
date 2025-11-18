@@ -33,14 +33,16 @@ func _on_gui_input(event):
 		print("left button up")
 
 		var dropPOS = get_tree().get_root().get_node("Level 1").get_global_mouse_position() # place location
-		if event.global_position.x >= 2000:
+		if event.global_position.x >= 1655:
 			tempTower.queue_free()
 		else:
 			remove_child(tempTower)
-			var Towerpath = get_tree().get_root().get_node("Level 1/Tower")
-			Towerpath.add_child(tempTower)
-			tempTower.global_position = dropPOS
-			tempTower.get_node("Area").hide()
+			if (currentTile == Vector2i(11,9)or Vector2i(11,10) or Vector2i(15,8) or Vector2i(15,9) or Vector2i(15,10)):
+				var Towerpath = get_tree().get_root().get_node("Level 1/Tower")
+				Towerpath.add_child(tempTower)
+				tempTower.global_position = dropPOS
+				tempTower.get_node("Area").hide()
+			
 	#else:
 		#if get_child_count() > 1:
 			#get_child(1).queue_free()

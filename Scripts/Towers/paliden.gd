@@ -48,6 +48,7 @@ func _on_tower_body_entered(body):
 		spellcontainer.call_deferred("add_child",tempSpell)
 		tempSpell.global_position = $Aim.global_position
 		
+		
 
 func _on_tower_body_exited(body: Node2D):
 	#currentTarget = towers.get_overlapping_bodies()

@@ -23,7 +23,6 @@ pausebutton = NodePath("ii button")
 
 [node name="pausemenu" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="pausemenu"]
 material = SubResource("ShaderMaterial_0jkog")
@@ -64,6 +63,7 @@ text = "Return to the castle"
 process_mode = 3
 
 [node name="pause" type="Button" parent="ii button"]
+process_mode = 3
 offset_left = 1766.0
 offset_top = 8.0
 offset_right = 1803.0
@@ -72,6 +72,7 @@ scale = Vector2(3.76, 2.32)
 text = "II"
 
 [node name="play" type="Button" parent="ii button"]
+process_mode = 3
 offset_left = 1613.0
 offset_top = 7.0
 offset_right = 1650.0

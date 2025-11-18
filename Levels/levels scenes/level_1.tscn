@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c1nmhi74l2d1w"]
+[gd_scene load_steps=18 format=4 uid="uid://c1nmhi74l2d1w"]
 
 [ext_resource type="TileSet" uid="uid://bgdgdaitscbig" path="res://General Assets/TDSetup/tileassets/level_1_tileMap.tres" id="1_d6xrh"]
 [ext_resource type="Script" uid="uid://beqoj1paem51p" path="res://Scripts/Level/path_spawner.gd" id="2_d6xrh"]
@@ -13,7 +13,10 @@
 [ext_resource type="Resource" uid="uid://b2ud5smhku63r" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W4.tres" id="11_0pbd5"]
 [ext_resource type="Resource" uid="uid://cb6j0cb3uafbb" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W5.tres" id="12_hmf6v"]
 [ext_resource type="Resource" uid="uid://cpjvi3b6pk0vw" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W6.tres" id="13_devep"]
+[ext_resource type="PackedScene" uid="uid://bn026odhju552" path="res://General Assets/Towers/Towers/Towers scenes/Ranger.tscn" id="15_0pbd5"]
+[ext_resource type="PackedScene" uid="uid://b5egg1eswc1ac" path="res://General Assets/Towers/Towers/Towers scenes/Knight.tscn" id="16_hmf6v"]
 [ext_resource type="PackedScene" uid="uid://dty4hitb1logn" path="res://GUI/ui.tscn" id="17_0pbd5"]
+[ext_resource type="PackedScene" uid="uid://c3526c4uocoyx" path="res://General Assets/Towers/Towers/Towers scenes/paliden.tscn" id="17_devep"]
 
 [node name="Level 1" type="Node2D" node_paths=PackedStringArray("pausesyst")]
 script = ExtResource("8_5cntx")
@@ -28,6 +31,8 @@ zoom = Vector2(1, 0.86)
 z_index = 20
 
 [node name="Map" type="Label" parent="."]
+offset_left = -2.0
+offset_top = -1.0
 offset_right = 1.0
 offset_bottom = 23.0
 
@@ -64,6 +69,15 @@ position = Vector2(17, -9)
 waves = Array[ExtResource("5_nfc5j")]([ExtResource("9_5cntx"), ExtResource("6_hygg8"), ExtResource("10_8eyy0"), ExtResource("11_0pbd5"), ExtResource("12_hmf6v"), ExtResource("13_devep")])
 
 [node name="Tower" type="Node2D" parent="." groups=["tower"]]
+
+[node name="Knight" parent="Tower" instance=ExtResource("16_hmf6v")]
+position = Vector2(603, 341)
+
+[node name="Ranger" parent="Tower" instance=ExtResource("15_0pbd5")]
+position = Vector2(596, 887)
+
+[node name="Paliden" parent="Tower" instance=ExtResource("17_devep")]
+position = Vector2(399, 141)
 
 [node name="UI" parent="." instance=ExtResource("17_0pbd5")]
 

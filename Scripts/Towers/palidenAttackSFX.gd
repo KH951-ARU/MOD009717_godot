@@ -25,6 +25,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.health -= SpellDamage
 		print (body.name)
 		queue_free()
+	
 
 func _idle(body: Node2D):
 	if body == null:

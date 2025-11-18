@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var Spell : PackedScene
+@export var Spell : PackedScene = preload("res://General Assets/Towers/Towers/Towers scenes/attacksfx Ranger.tscn")
 var SpellDamage = 5
 var tracePath
 var currentTarget = []
@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_tower_body_entered(body):
+	tracePath = body
+	print("enemry entered")
+	print(body)
 	if body is Enemy  :
 		#var tempArray = []
 		#
@@ -55,3 +58,12 @@ func _on_tower_body_exited(body: Node2D):
 	await spriteholder.animation_finished
 	spriteholder.play("Idle")
 	pass
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: #click down on upgrade button
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		var towerpath = get_tree().get_root().get_node("Level 1/Tower")
+		for i in towerpath.get_child_count():
+			if towerpath.get_child(i).name != self.name:
+				towerpath.get_child(i).get_node("Upgrades/Upgrades").hide()
+		get_node("Upgrades/Upgrades").visible = !get_node("Upgrades/Upgrades").visible
+		get_node("Upgrades/Upgrades").global_position = self.position + Vector2(-572,81)

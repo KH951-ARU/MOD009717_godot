@@ -23,8 +23,10 @@ pausebutton = NodePath("ii button")
 
 [node name="pausemenu" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="pausemenu"]
+process_mode = 3
 material = SubResource("ShaderMaterial_0jkog")
 offset_right = 40.0
 offset_bottom = 40.0
@@ -32,6 +34,7 @@ scale = Vector2(4.08, 2.64)
 color = Color(0.241156, 0.241156, 0.241156, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="pausemenu"]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,17 +48,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="pausemenu/MarginContainer"]
+process_mode = 3
 layout_mode = 2
 
 [node name="Resume" type="Button" parent="pausemenu/MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Resume"
 
 [node name="Thy setting" type="Button" parent="pausemenu/MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Thy setting"
 
 [node name="Return to the castle" type="Button" parent="pausemenu/MarginContainer/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Return to the castle"
 

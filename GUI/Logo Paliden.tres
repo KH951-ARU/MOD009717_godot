@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://efpi6ko342d0"]
+
+[ext_resource type="Texture2D" uid="uid://cqn5dadnfuw5i" path="res://General Assets/Towers/Assets/Paladin/Attack/spr_PaladinAttackWithoutEffect_strip41.png" id="1_q2equ"]
+
+[resource]
+atlas = ExtResource("1_q2equ")
+region = Rect2(36.1812, 19.2706, 52.1574, 53.3992)

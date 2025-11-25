@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dty4hitb1logn"]
+[gd_scene load_steps=5 format=3 uid="uid://dty4hitb1logn"]
 
 [ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://General Assets/menu assets/Menu.tres" id="1_nexes"]
 [ext_resource type="PackedScene" uid="uid://dcerp4c5ulo7q" path="res://GUI/Tower (ranger)panel.tscn" id="2_i10yr"]
 [ext_resource type="PackedScene" uid="uid://bsq7kk354xrjo" path="res://GUI/Tower (Knight)panel.tscn" id="3_4qblt"]
+[ext_resource type="PackedScene" uid="uid://wi067evsxp0m" path="res://GUI/Tower (Paliden)panel.tscn" id="4_3qth6"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -17,12 +18,21 @@ offset_bottom = 968.0
 grow_horizontal = 0
 theme = ExtResource("1_nexes")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 88.0
+bbcode_enabled = true
+text = " TOWERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FlowContainer" type="FlowContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 24.0
+offset_top = 96.0
 offset_right = 93.0
-offset_bottom = 288.0
+offset_bottom = 336.0
 scale = Vector2(3.10271, 3)
 theme = ExtResource("1_nexes")
 theme_override_constants/h_separation = 10
@@ -32,4 +42,7 @@ theme_override_constants/v_separation = 10
 layout_mode = 2
 
 [node name="Knight Tower" parent="Panel/FlowContainer" instance=ExtResource("3_4qblt")]
+layout_mode = 2
+
+[node name="PalidenTower" parent="Panel/FlowContainer" instance=ExtResource("4_3qth6")]
 layout_mode = 2

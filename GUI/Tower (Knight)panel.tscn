@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://c4dv2cebp763t" path="res://GUI/Logo Knight.tres" id="3_uo44c"]
 
 [node name="Knight Tower" type="Panel"]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(50, 50)
 offset_right = 30.0
 offset_bottom = 30.0
 script = ExtResource("1_uo44c")
 tower1 = ExtResource("2_d6jos")
 
 [node name="KnightSprite" type="Sprite2D" parent="."]
-position = Vector2(15, 14)
-scale = Vector2(0.615385, 0.633603)
+position = Vector2(25, 24.5)
+scale = Vector2(1.84615, 1.88462)
 texture = ExtResource("3_uo44c")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

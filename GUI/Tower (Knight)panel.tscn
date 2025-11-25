@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsq7kk354xrjo"]
+
+[ext_resource type="Script" uid="uid://c6dtsakuhg8ne" path="res://GUI/tower buttons scripts/tower_(Knight)panel.gd" id="1_uo44c"]
+[ext_resource type="PackedScene" uid="uid://b5egg1eswc1ac" path="res://General Assets/Towers/Towers/Towers scenes/Knight.tscn" id="2_d6jos"]
+[ext_resource type="Texture2D" uid="uid://c4dv2cebp763t" path="res://GUI/Logo Knight.tres" id="3_uo44c"]
+
+[node name="Knight Tower" type="Panel"]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+script = ExtResource("1_uo44c")
+tower1 = ExtResource("2_d6jos")
+
+[node name="KnightSprite" type="Sprite2D" parent="."]
+position = Vector2(15, 14)
+scale = Vector2(0.615385, 0.633603)
+texture = ExtResource("3_uo44c")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

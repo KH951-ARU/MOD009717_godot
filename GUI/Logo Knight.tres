@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c4dv2cebp763t"]
+
+[ext_resource type="Texture2D" uid="uid://d0gk3exmqfxfg" path="res://General Assets/Towers/Assets/Knight/Soldier-Attack01.png" id="1_b1e0h"]
+
+[resource]
+atlas = ExtResource("1_b1e0h")
+region = Rect2(36.8174, 34.9743, 26.7522, 26.1575)

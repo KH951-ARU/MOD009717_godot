@@ -4,7 +4,6 @@
 [ext_resource type="SpriteFrames" uid="uid://dw64kjcewfdc" path="res://General Assets/Towers/Sketchbooks for towers/RangerAttackVFXanims.tres" id="2_ctxjs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_liw5c"]
-radius = 10.0
 height = 50.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4qqq"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn026odhju552"]
+[gd_scene load_steps=14 format=3 uid="uid://bn026odhju552"]
 
 [ext_resource type="Script" uid="uid://dktivfa7y3lqj" path="res://Scripts/Towers/Ranger.gd" id="1_gsfjj"]
 [ext_resource type="SpriteFrames" uid="uid://cvq8gsfg0uiy3" path="res://General Assets/Towers/Sketchbooks for towers/RangerSpriteANims.tres" id="3_ne1pj"]
@@ -7,6 +7,9 @@
 [ext_resource type="StyleBox" uid="uid://c8odaamshkdrq" path="res://GUI/Shield style box flat buttons (foucs).tres" id="5_h1jlt"]
 [ext_resource type="StyleBox" uid="uid://btljndjxqs11s" path="res://GUI/Shield style box flat buttons (pressed).tres" id="6_6yv6j"]
 [ext_resource type="StyleBox" uid="uid://u6vq4oltxxys" path="res://GUI/Shield style box flat buttons.tres" id="7_wrjlx"]
+[ext_resource type="StyleBox" uid="uid://bjxpfwmjld68o" path="res://GUI/Shield style box flat progres back fill (foucs).tres" id="8_wrjlx"]
+[ext_resource type="StyleBox" uid="uid://7pyn7q24ng67" path="res://GUI/Shield style box flat progres fill .tres" id="9_wawih"]
+[ext_resource type="Script" uid="uid://eeobfsgjlmn3" path="res://General Assets/Towers/Towers/Towers scenes/Firerate_Ranger.gd" id="10_7s583"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnfrm"]
 size = Vector2(91, 82.75)
@@ -26,7 +29,7 @@ func _ready() -> void:
 func _Draw():
 	var centre = Vector2(0,0)
 	var radus = get_parent().get_parent().range
-	var color = Color8(255,84,95,145)
+	var color = Color(1,0,0)
 	draw_circle(centre, radus, color)
 "
 
@@ -66,11 +69,12 @@ theme_override_styles/panel = ExtResource("4_ne1pj")
 [node name="Upgrades" type="Node" parent="."]
 
 [node name="Upgrades" type="Panel" parent="Upgrades"]
+visible = false
 offset_left = -78.0
 offset_top = 41.0
 offset_right = 498.0
 offset_bottom = 233.0
-scale = Vector2(0.334987, 0.493271)
+scale = Vector2(0.272737, 0.318194)
 theme_override_styles/panel = ExtResource("4_h0fpp")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrades"]
@@ -96,7 +100,7 @@ offset_top = 123.5
 offset_right = 86.5
 offset_bottom = 147.5
 bbcode_enabled = true
-text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]Range[/fill][/wave][/color][/fade]
+text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]10000[/fill][/wave][/color][/fade]
 "
 
 [node name="Attack Speed" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
@@ -109,12 +113,12 @@ theme_override_styles/normal = ExtResource("7_wrjlx")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Attack Speed"]
 layout_mode = 0
-offset_left = 7.84508
-offset_top = 129.156
-offset_right = 125.845
-offset_bottom = 153.156
+offset_left = 33.0
+offset_top = 123.5
+offset_right = 87.0
+offset_bottom = 147.5
 bbcode_enabled = true
-text = "[fade start=0 length 20][color=aqua][wave amp =50 freq =2][fill]AttackSpeed[/fill][/wave][/color][/fade]
+text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]10000[/fill][/wave][/color][/fade]
 "
 
 [node name="Power" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
@@ -132,14 +136,24 @@ offset_top = 123.5
 offset_right = 90.0
 offset_bottom = 147.5
 bbcode_enabled = true
-text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]Power[/fill][/wave][/color][/fade]
+text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]10000[/fill][/wave][/color][/fade]
 "
+
+[node name="ProgressBar" type="ProgressBar" parent="Upgrades"]
+offset_left = -16.0
+offset_top = 8.0
+offset_right = 13.0
+offset_bottom = 11.0
+rotation = -1.57044
+scale = Vector2(0.679944, 1)
+theme_override_styles/background = ExtResource("8_wrjlx")
+theme_override_styles/fill = ExtResource("9_wawih")
+show_percentage = false
+script = ExtResource("10_7s583")
+
+[node name="Timer" type="Timer" parent="Upgrades/ProgressBar"]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Ranger/Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Ranger/Tower" to="." method="_on_tower_body_exited"]
-[connection signal="mouse_entered" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_mouse_entered"]
-[connection signal="mouse_exited" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_mouse_exited"]
-[connection signal="pressed" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_pressed"]
-[connection signal="pressed" from="Upgrades/Upgrades/HBoxContainer/Attack Speed" to="." method="_on_attack_speed_pressed"]
-[connection signal="pressed" from="Upgrades/Upgrades/HBoxContainer/Power" to="." method="_on_power_pressed"]
+[connection signal="timeout" from="Upgrades/ProgressBar/Timer" to="." method="_on_timer_timeout"]

@@ -1,5 +1,6 @@
 extends StaticBody2D
-
+#varibles 
+#main vars
 @export var Spell : PackedScene = preload("res://General Assets/Towers/Towers/Towers scenes/attacksfx Ranger.tscn")
 var SpellDamage = 5
 var tracePath
@@ -9,7 +10,11 @@ var current
 @onready var sprite = get_node('Ranger')
 @export var spriteholder : AnimatedSprite2D
 @export var towers : Area2D
+var range = 200
+var projectileSpeed = 50
 
+
+#functions
 func _ready() -> void:
 	spriteholder.play("Idle")
 	
@@ -42,9 +47,9 @@ func _on_tower_body_entered(body):
 		
 		current = currentTarget
 		tracePath = currentTarget
-		
 		spriteholder.play("RangedAttack")
 		var tempSpell = Spell.instantiate()
+		tempSpell.speed += projectileSpeed
 		tempSpell.tracePath = tracePath
 		tempSpell.SpellDamage = SpellDamage
 		tempSpell.target = currentTarget
@@ -66,4 +71,37 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			if towerpath.get_child(i).name != self.name:
 				towerpath.get_child(i).get_node("Upgrades/Upgrades").hide()
 		get_node("Upgrades/Upgrades").visible = !get_node("Upgrades/Upgrades").visible
-		get_node("Upgrades/Upgrades").global_position = self.position + Vector2(-572,81)
+		get_node("Upgrades/Upgrades").global_position = self.position + Vector2(0,0)
+
+
+func _on_range_pressed() -> void:
+	range += 50
+	print(range)
+
+
+func _on_attack_speed_pressed() -> void:
+	projectileSpeed += 50 
+	print (projectileSpeed)
+
+
+func _on_power_pressed() -> void:
+	SpellDamage += 5
+	print(SpellDamage) 
+
+func update_Upgrade_pannel():
+	#Upgrades text var 
+	var RangeTEX = get_node("Upgrades/Upgrades/HBoxContainer/Range/RichTextLabel").text
+	var AttackSpeedTEX = get_node("Upgrades/Upgrades/HBoxContainer/Attack Speed/RichTextLabel2").text
+	var PowerTEX = get_node("Upgrades/Upgrades/HBoxContainer/Power/RichTextLabel3").text
+
+	RangeTEX = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(range)+"[/fill][/wave][/color][/fade]")
+	AttackSpeedTEX = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(projectileSpeed)+"[/fill][/wave][/color][/fade]")
+	PowerTEX = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(SpellDamage)+"[/fill][/wave][/color][/fade]")
+	
+	get_node("Ranger/Tower/CollisionShape2D").shape.radius = range
+
+func _on_range_mouse_entered() -> void:
+	get_node("Ranger/Tower/CollisionShape2D").show()
+
+func _on_range_mouse_exited() -> void:
+	get_node("Ranger/Tower/CollisionShape2D").hide()

@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3526c4uocoyx"]
+[gd_scene load_steps=10 format=3 uid="uid://c3526c4uocoyx"]
 
 [ext_resource type="Script" uid="uid://b0ifp57hqi35j" path="res://Scripts/Towers/paliden.gd" id="1_y5mfy"]
 [ext_resource type="SpriteFrames" uid="uid://dvbkpbtk5e43d" path="res://General Assets/Towers/Sketchbooks for towers/PalidenSpriteAnims.tres" id="2_f703l"]
-[ext_resource type="PackedScene" uid="uid://cewo31mdqgrxi" path="res://General Assets/Towers/Towers/Towers scenes/attacksfx paliden.tscn" id="2_i2wyq"]
+[ext_resource type="StyleBox" uid="uid://cxxv67it7808p" path="res://GUI/Tower radius.tres" id="4_xpoe3"]
+[ext_resource type="StyleBox" uid="uid://d2qvbypxknvvd" path="res://GUI/Shield style box flat.tres" id="5_tjr4y"]
+[ext_resource type="StyleBox" uid="uid://c8odaamshkdrq" path="res://GUI/Shield style box flat buttons (foucs).tres" id="6_tisiv"]
+[ext_resource type="StyleBox" uid="uid://btljndjxqs11s" path="res://GUI/Shield style box flat buttons (pressed).tres" id="7_soytk"]
+[ext_resource type="StyleBox" uid="uid://u6vq4oltxxys" path="res://GUI/Shield style box flat buttons.tres" id="8_dg2d0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnfrm"]
 size = Vector2(54, 43)
@@ -11,8 +15,8 @@ size = Vector2(54, 43)
 radius = 200.0
 
 [node name="Paliden" type="StaticBody2D" node_paths=PackedStringArray("spellcontainer", "spriteholder", "towers")]
+input_pickable = true
 script = ExtResource("1_y5mfy")
-Spell = ExtResource("2_i2wyq")
 spellcontainer = NodePath("spellcontainer")
 spriteholder = NodePath("palidien")
 towers = NodePath("palidien/Tower")
@@ -35,5 +39,91 @@ shape = SubResource("CircleShape2D_g6f8q")
 
 [node name="spellcontainer" type="Node" parent="."]
 
+[node name="Area" type="Panel" parent="."]
+self_modulate = Color(0.203922, 0.960784, 0.807843, 0.627451)
+offset_left = -152.0
+offset_top = -144.0
+offset_right = 148.0
+offset_bottom = 156.0
+theme_override_styles/panel = ExtResource("4_xpoe3")
+
+[node name="Upgrades" type="Node" parent="."]
+
+[node name="Upgrades" type="Panel" parent="Upgrades"]
+offset_left = -78.0
+offset_top = 41.0
+offset_right = 498.0
+offset_bottom = 233.0
+scale = Vector2(0.334987, 0.493271)
+theme_override_styles/panel = ExtResource("5_tjr4y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrades"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 570.0
+offset_bottom = 151.0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Range" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("6_tisiv")
+theme_override_styles/hover = ExtResource("7_soytk")
+theme_override_styles/pressed = ExtResource("7_soytk")
+theme_override_styles/normal = ExtResource("8_dg2d0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Range"]
+layout_mode = 0
+offset_left = 32.5
+offset_top = 123.5
+offset_right = 86.5
+offset_bottom = 147.5
+bbcode_enabled = true
+text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]Range[/fill][/wave][/color][/fade]
+"
+
+[node name="Attack Speed" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("6_tisiv")
+theme_override_styles/hover = ExtResource("7_soytk")
+theme_override_styles/pressed = ExtResource("7_soytk")
+theme_override_styles/normal = ExtResource("8_dg2d0")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Attack Speed"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 123.0
+offset_right = 115.0
+offset_bottom = 147.0
+bbcode_enabled = true
+text = "[fade start=0 length 20][color=aqua][wave amp =50 freq =2][fill]AttackSpeed[/fill][/wave][/color][/fade]
+"
+tab_size = 5
+
+[node name="Power" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("6_tisiv")
+theme_override_styles/hover = ExtResource("7_soytk")
+theme_override_styles/pressed = ExtResource("7_soytk")
+theme_override_styles/normal = ExtResource("8_dg2d0")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Power"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 123.5
+offset_right = 90.0
+offset_bottom = 147.5
+bbcode_enabled = true
+text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]Power[/fill][/wave][/color][/fade]
+"
+
 [connection signal="body_entered" from="palidien/Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="palidien/Tower" to="." method="_on_tower_body_exited"]
+[connection signal="mouse_entered" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_mouse_exited"]
+[connection signal="pressed" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_pressed"]
+[connection signal="pressed" from="Upgrades/Upgrades/HBoxContainer/Attack Speed" to="." method="_on_attack_speed_pressed"]
+[connection signal="pressed" from="Upgrades/Upgrades/HBoxContainer/Power" to="." method="_on_power_pressed"]

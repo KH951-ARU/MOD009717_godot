@@ -18,6 +18,8 @@ var sequneceIndex = 0
 func spawn_next_waves():
 	var N0_waves = waves.size()
 	if currentWave > N0_waves or status == 'spawning':
+		print("Spawing")
+		
 		return
 	status = 'spawning'
 	emit_signal('wave_changed', currentWave)
@@ -28,7 +30,8 @@ func spawn_next_waves():
 	if status == 'spawning':
 		status = 'idle'
 		spawnerIndex += 1
-		await get_tree().create_timer(30).timeout
+		await get_tree().create_timer(10).timeout
+		print ("idle")
 
 func spawn_unit(enemy_index, time, amount):
 	for i in amount:

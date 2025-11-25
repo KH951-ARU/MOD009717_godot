@@ -21,7 +21,7 @@ theme = ExtResource("1_nexes")
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_right = 256.0
-offset_bottom = 88.0
+offset_bottom = 128.0
 bbcode_enabled = true
 text = " TOWERS"
 horizontal_alignment = 1
@@ -30,9 +30,9 @@ vertical_alignment = 1
 [node name="FlowContainer" type="FlowContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 96.0
+offset_top = 128.0
 offset_right = 93.0
-offset_bottom = 336.0
+offset_bottom = 357.0
 scale = Vector2(3.10271, 3)
 theme = ExtResource("1_nexes")
 theme_override_constants/h_separation = 10

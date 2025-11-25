@@ -13,7 +13,7 @@ func _on_gui_input(event):
 		print("left button down")
 		add_child(tempTower)
 
-		tempTower.process_mode = Node.PROCESS_MODE_DISABLED
+
 		tempTower.scale = Vector2(0.75,0.75) # scale for the tower
 
 	elif event is InputEventMouseMotion:
@@ -42,7 +42,7 @@ func _on_gui_input(event):
 				Towerpath.add_child(tempTower)
 				tempTower.global_position = dropPOS
 				tempTower.get_node("Area").hide()
-			
+		tempTower = null
 	#else:
 		#if get_child_count() > 1:
 			#get_child(1).queue_free()

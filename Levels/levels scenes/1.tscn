@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://mxispojtylqn"]
+[gd_scene load_steps=3 format=3 uid="uid://dmrlqhuybdbgj"]
 
 [ext_resource type="TileSet" uid="uid://1wwf550e2bra" path="res://General Assets/TDSetup/tileassets/CUTSCENE_BACKDROP.tres" id="1_kchkh"]
 [ext_resource type="Script" uid="uid://qnjbk74xraut" path="res://Cutscene.gd" id="2_jdhf7"]

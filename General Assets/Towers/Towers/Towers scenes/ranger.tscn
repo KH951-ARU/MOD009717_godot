@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn026odhju552"]
+[gd_scene load_steps=12 format=3 uid="uid://bn026odhju552"]
 
 [ext_resource type="Script" uid="uid://dktivfa7y3lqj" path="res://Scripts/Towers/Ranger.gd" id="1_gsfjj"]
 [ext_resource type="SpriteFrames" uid="uid://cvq8gsfg0uiy3" path="res://General Assets/Towers/Sketchbooks for towers/RangerSpriteANims.tres" id="3_ne1pj"]
@@ -30,6 +30,9 @@ func _Draw():
 	draw_circle(centre, radus, color)
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0fpp"]
+size = Vector2(27, 21)
+
 [node name="Ranger" type="StaticBody2D" node_paths=PackedStringArray("spellcontainer", "spriteholder", "towers")]
 input_pickable = true
 script = ExtResource("1_gsfjj")
@@ -53,6 +56,14 @@ animation = &"Idle"
 shape = SubResource("CircleShape2D_g6f8q")
 script = SubResource("GDScript_kk2xn")
 
+[node name="Tower dection" type="Area2D" parent="Ranger"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ranger/Tower dection"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_h0fpp")
+
 [node name="spellcontainer" type="Node" parent="."]
 
 [node name="Area" type="Panel" parent="."]
@@ -61,6 +72,7 @@ offset_left = -152.0
 offset_top = -144.0
 offset_right = 148.0
 offset_bottom = 156.0
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_ne1pj")
 
 [node name="Upgrades" type="Node" parent="."]

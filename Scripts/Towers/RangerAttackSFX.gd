@@ -24,7 +24,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body: Node2D):
 	if body is Enemy:
 		body.health -= SpellDamage
-		print (body.name)
+		#print (body.name)
 		queue_free()
 
 func _idle(body: Node2D):

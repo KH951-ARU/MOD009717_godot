@@ -9,7 +9,7 @@ func _ready() -> void:
 	$"CenterContainer/settings menu/main music volume slider".value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file(str("res://Levels/levels scenes/",level, ".tscn"))
+	get_tree().change_scene_to_file(str("res://Levels/levels scenes/level_1.tscn"))
 
 func _on_settings_pressed() -> void:
 	$"CenterContainer/main buttons".visible = false

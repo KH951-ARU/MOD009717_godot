@@ -1,53 +1,56 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5egg1eswc1ac"]
+[gd_scene load_steps=12 format=3 uid="uid://brtv2ac36ymuh"]
 
-[ext_resource type="Script" uid="uid://bahikon24ikho" path="res://Scripts/Towers/Knight.gd" id="1_ukx00"]
-[ext_resource type="StyleBox" uid="uid://cxxv67it7808p" path="res://GUI/Tower radius.tres" id="3_nfrwe"]
-[ext_resource type="SpriteFrames" uid="uid://d3cyojc3r11es" path="res://General Assets/Towers/Sketchbooks for towers/KnightSpriteANims.tres" id="3_ukx00"]
-[ext_resource type="StyleBox" uid="uid://d2qvbypxknvvd" path="res://GUI/Shield style box flat.tres" id="4_pldav"]
-[ext_resource type="StyleBox" uid="uid://c8odaamshkdrq" path="res://GUI/Shield style box flat buttons (foucs).tres" id="5_awkda"]
-[ext_resource type="StyleBox" uid="uid://btljndjxqs11s" path="res://GUI/Shield style box flat buttons (pressed).tres" id="6_83677"]
-[ext_resource type="StyleBox" uid="uid://u6vq4oltxxys" path="res://GUI/Shield style box flat buttons.tres" id="7_bubk4"]
+[ext_resource type="Script" uid="uid://bahikon24ikho" path="res://Scripts/Towers/Knight.gd" id="1_cmia2"]
+[ext_resource type="SpriteFrames" uid="uid://cvq8gsfg0uiy3" path="res://General Assets/Towers/Sketchbooks for towers/RangerSpriteANims.tres" id="2_cmia2"]
+[ext_resource type="PackedScene" uid="uid://b7qb6j30cu16i" path="res://General Assets/Towers/Towers/Towers scenes/attacksfx Ranger.tscn" id="2_sfl1d"]
+[ext_resource type="StyleBox" uid="uid://cxxv67it7808p" path="res://GUI/Tower radius.tres" id="3_sfl1d"]
+[ext_resource type="StyleBox" uid="uid://d2qvbypxknvvd" path="res://GUI/Shield style box flat.tres" id="4_vhqph"]
+[ext_resource type="StyleBox" uid="uid://c8odaamshkdrq" path="res://GUI/Shield style box flat buttons (foucs).tres" id="5_a6jcq"]
+[ext_resource type="StyleBox" uid="uid://btljndjxqs11s" path="res://GUI/Shield style box flat buttons (pressed).tres" id="6_jupqa"]
+[ext_resource type="StyleBox" uid="uid://u6vq4oltxxys" path="res://GUI/Shield style box flat buttons.tres" id="7_g7qn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnfrm"]
-size = Vector2(54, 43)
+size = Vector2(91, 82.75)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6f8q"]
-radius = 119.0
+radius = 200.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfrwe"]
-size = Vector2(27, 21)
+[sub_resource type="GDScript" id="GDScript_kk2xn"]
+script/source = "extends CollisionShape2D
 
-[node name="Knight" type="StaticBody2D" node_paths=PackedStringArray("spellcontainer", "spriteholder", "towers")]
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+func _Draw():
+	var centre = Vector2(0,0)
+	var radus = get_parent().get_parent().range
+	var color = Color8(255,84,95,145)
+	draw_circle(centre, radus, color)
+"
+
+[node name="Knight" type="StaticBody2D"]
 input_pickable = true
-script = ExtResource("1_ukx00")
-spellcontainer = NodePath("spellcontainer")
-spriteholder = NodePath("Knight")
-towers = NodePath("Knight/Tower")
+script = ExtResource("1_cmia2")
+Spell = ExtResource("2_sfl1d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_vnfrm")
 
 [node name="Aim" type="Marker2D" parent="."]
 position = Vector2(33, 0)
 
 [node name="Knight" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = ExtResource("3_ukx00")
-animation = &"RangedAttack"
+sprite_frames = ExtResource("2_cmia2")
+animation = &"Idle"
 
 [node name="Tower" type="Area2D" parent="Knight"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Knight/Tower"]
 shape = SubResource("CircleShape2D_g6f8q")
-
-[node name="Tower dection" type="Area2D" parent="Knight"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knight/Tower dection"]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_nfrwe")
+script = SubResource("GDScript_kk2xn")
 
 [node name="spellcontainer" type="Node" parent="."]
 
@@ -58,7 +61,7 @@ offset_top = -144.0
 offset_right = 148.0
 offset_bottom = 156.0
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("3_nfrwe")
+theme_override_styles/panel = ExtResource("3_sfl1d")
 
 [node name="Upgrades" type="Node" parent="."]
 
@@ -68,7 +71,7 @@ offset_top = 41.0
 offset_right = 498.0
 offset_bottom = 233.0
 scale = Vector2(0.334987, 0.493271)
-theme_override_styles/panel = ExtResource("4_pldav")
+theme_override_styles/panel = ExtResource("4_vhqph")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Upgrades/Upgrades"]
 layout_mode = 0
@@ -81,10 +84,10 @@ alignment = 1
 [node name="Range" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/focus = ExtResource("5_awkda")
-theme_override_styles/hover = ExtResource("6_83677")
-theme_override_styles/pressed = ExtResource("6_83677")
-theme_override_styles/normal = ExtResource("7_bubk4")
+theme_override_styles/focus = ExtResource("5_a6jcq")
+theme_override_styles/hover = ExtResource("6_jupqa")
+theme_override_styles/pressed = ExtResource("6_jupqa")
+theme_override_styles/normal = ExtResource("7_g7qn4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Range"]
 layout_mode = 0
@@ -99,29 +102,28 @@ text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]Range[/fi
 [node name="Attack Speed" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/focus = ExtResource("5_awkda")
-theme_override_styles/hover = ExtResource("6_83677")
-theme_override_styles/pressed = ExtResource("6_83677")
-theme_override_styles/normal = ExtResource("7_bubk4")
+theme_override_styles/focus = ExtResource("5_a6jcq")
+theme_override_styles/hover = ExtResource("6_jupqa")
+theme_override_styles/pressed = ExtResource("6_jupqa")
+theme_override_styles/normal = ExtResource("7_g7qn4")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Attack Speed"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 123.0
-offset_right = 115.0
-offset_bottom = 147.0
+offset_left = 7.84508
+offset_top = 129.156
+offset_right = 125.845
+offset_bottom = 153.156
 bbcode_enabled = true
 text = "[fade start=0 length 20][color=aqua][wave amp =50 freq =2][fill]AttackSpeed[/fill][/wave][/color][/fade]
 "
-tab_size = 5
 
 [node name="Power" type="Button" parent="Upgrades/Upgrades/HBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_styles/focus = ExtResource("5_awkda")
-theme_override_styles/hover = ExtResource("6_83677")
-theme_override_styles/pressed = ExtResource("6_83677")
-theme_override_styles/normal = ExtResource("7_bubk4")
+theme_override_styles/focus = ExtResource("5_a6jcq")
+theme_override_styles/hover = ExtResource("6_jupqa")
+theme_override_styles/pressed = ExtResource("6_jupqa")
+theme_override_styles/normal = ExtResource("7_g7qn4")
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Upgrades/Upgrades/HBoxContainer/Power"]
 layout_mode = 0

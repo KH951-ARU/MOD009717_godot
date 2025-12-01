@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_adlew")
 EnemyIndex = 2
-amount = 3
+amount = 10
 time = 2.0
 metadata/_custom_type_script = "uid://cten2b3pqjcca"

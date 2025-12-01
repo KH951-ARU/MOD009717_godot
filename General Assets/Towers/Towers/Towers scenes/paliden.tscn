@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3526c4uocoyx"]
+[gd_scene load_steps=11 format=3 uid="uid://c3526c4uocoyx"]
 
 [ext_resource type="Script" uid="uid://b0ifp57hqi35j" path="res://Scripts/Towers/paliden.gd" id="1_y5mfy"]
 [ext_resource type="SpriteFrames" uid="uid://dvbkpbtk5e43d" path="res://General Assets/Towers/Sketchbooks for towers/PalidenSpriteAnims.tres" id="2_f703l"]
@@ -13,6 +13,9 @@ size = Vector2(54, 43)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6f8q"]
 radius = 200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ccl6"]
+size = Vector2(27, 21)
 
 [node name="Paliden" type="StaticBody2D" node_paths=PackedStringArray("spellcontainer", "spriteholder", "towers")]
 input_pickable = true
@@ -37,6 +40,14 @@ animation = &"Attack"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="palidien/Tower"]
 shape = SubResource("CircleShape2D_g6f8q")
 
+[node name="Tower dection" type="Area2D" parent="palidien"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="palidien/Tower dection"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1ccl6")
+
 [node name="spellcontainer" type="Node" parent="."]
 
 [node name="Area" type="Panel" parent="."]
@@ -45,6 +56,7 @@ offset_left = -152.0
 offset_top = -144.0
 offset_right = 148.0
 offset_bottom = 156.0
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_xpoe3")
 
 [node name="Upgrades" type="Node" parent="."]
@@ -120,6 +132,7 @@ bbcode_enabled = true
 text = "[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]Power[/fill][/wave][/color][/fade]
 "
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="palidien/Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="palidien/Tower" to="." method="_on_tower_body_exited"]
 [connection signal="mouse_entered" from="Upgrades/Upgrades/HBoxContainer/Range" to="." method="_on_range_mouse_entered"]

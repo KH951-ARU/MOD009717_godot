@@ -19,12 +19,14 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	pass
+	update_Upgrade_pannel()
+
+
 
 func _on_tower_body_entered(body):
 	tracePath = body
-	print("enemry entered")
-	print(body)
+	#print("enemry entered")
+	#print(body)
 	if body is Enemy  :
 		#var tempArray = []
 		#
@@ -64,33 +66,36 @@ func _on_tower_body_exited(body: Node2D):
 	pass
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: #click down on upgrade button
+	print("input Event launched")
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var towerpath = get_tree().get_root().get_node("Level 1/Tower")
 		for i in towerpath.get_child_count():
+			print(towerpath.get_child(i).name)
 			if towerpath.get_child(i).name != self.name:
+				print(towerpath.get_child(i).name)
 				towerpath.get_child(i).get_node("Upgrades/Upgrades").hide()
 		get_node("Upgrades/Upgrades").visible = !get_node("Upgrades/Upgrades").visible
 		get_node("Upgrades/Upgrades").global_position = self.position + Vector2(0,0)
-
+		print("clincked")
 
 func _on_range_pressed() -> void:
 	range += 50
-	print(range)
+	#print(range)
 
 
 func _on_attack_speed_pressed() -> void:
 	projectileSpeed += 50 
-	print (projectileSpeed)
+	#print (projectileSpeed)
 
 
 func _on_power_pressed() -> void:
 	SpellDamage += 5
-	print(SpellDamage) 
+	#print(SpellDamage) 
 
 func update_Upgrade_pannel():
 	get_node("Upgrades/Upgrades/HBoxContainer/Range/RichTextLabel").text = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+ str(range) +"[/fill][/wave][/color][/fade]")
-	get_node("Upgrades/Upgrades/HBoxContainer/Range/RichTextLabel2").text = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(projectileSpeed)+"[/fill][/wave][/color][/fade]")
-	get_node("Upgrades/Upgrades/HBoxContainer/Range/RichTextLabel3").text = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(SpellDamage)+"[/fill][/wave][/color][/fade]")
+	get_node("Upgrades/Upgrades/HBoxContainer/Attack Speed/RichTextLabel2").text = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(projectileSpeed)+"[/fill][/wave][/color][/fade]")
+	get_node("Upgrades/Upgrades/HBoxContainer/Power/RichTextLabel3").text = str("[fade start=0 length 5][color=aqua][wave amp =50 freq =2][fill]"+str(SpellDamage)+"[/fill][/wave][/color][/fade]")
 	
 	get_node("Knight/Tower/CollisionShape2D").shape.radius = range
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpmvokoprrd4e"]
 
-[ext_resource type="Script" uid="uid://cvx8pitgxfwlw" path="res://Scripts/Enermies/Beholder.gd" id="1_2jpfd"]
+[ext_resource type="Script" uid="uid://d2b0m2o27v7vi" path="res://Scripts/Enermies/skeleton.gd" id="1_2jpfd"]
 [ext_resource type="SpriteFrames" uid="uid://boi6jwx1s5jxd" path="res://General Assets/Enermies/Sketchbooks for enermies/skeleton.tres" id="1_yiho3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b87xn"]
@@ -10,11 +10,10 @@ radius = 11.0805
 rotates = false
 loop = false
 
-[node name="skeleton" type="CharacterBody2D" parent="." node_paths=PackedStringArray("spriteholder", "pathfollower", "AttackPos")]
+[node name="skeleton" type="CharacterBody2D" parent="."]
 script = ExtResource("1_2jpfd")
-spriteholder = NodePath("AnimatedSprite2D")
-pathfollower = NodePath("..")
-AttackPos = NodePath("attackPOS")
+speed = 0.03
+health = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="skeleton"]
 sprite_frames = ExtResource("1_yiho3")

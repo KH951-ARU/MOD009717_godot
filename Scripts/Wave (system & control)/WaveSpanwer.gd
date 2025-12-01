@@ -17,10 +17,17 @@ var sequneceIndex = 0
 
 func spawn_next_waves():
 	var N0_waves = waves.size()
-	if currentWave > N0_waves or status == 'spawning':
-		print("Spawing")
+	if  status == 'spawning':
+		print ("wave spawing")
+		print("____" +status)
+		print("____" +currentWave)
+		print("____" +N0_waves)
+		currentWave += 1
 		
 		return
+		if currentWave > N0_waves:
+			status = "Win"
+	
 	status = 'spawning'
 	emit_signal('wave_changed', currentWave)
 	#for horde in waves[currentWave].enemy_sequneces[sequneceIndex]:
@@ -30,8 +37,24 @@ func spawn_next_waves():
 	if status == 'spawning':
 		status = 'idle'
 		spawnerIndex += 1
+		Game.Round += 1
 		await get_tree().create_timer(10).timeout
-		print ("idle")
+		
+func _GameOverWin():
+	status = "Win"
+
+func _GameOverLoss():
+	status = "Game over"
+
+func _Resetwave():
+	currentWave = 0
+	#print("5")
+	#print("4")
+	#print("3")
+	#print("2")
+	#print("1")
+	await get_tree().create_timer(20).timeout
+
 
 func spawn_unit(enemy_index, time, amount):
 	for i in amount:
@@ -47,3 +70,11 @@ func spawn_unit(enemy_index, time, amount):
 func _unhandled_input(_event):
 	if  Input.is_action_just_pressed('Test'):
 		spawn_next_waves()
+
+func  _endGame():
+	if status == "Game over" or status == " Win":
+		status == "Dead"
+		if status == "Dead":
+			currentWave = null
+			spawnerIndex = null
+			

@@ -11,9 +11,13 @@ func _ready() -> void:
 	spriteholder.play("Walk")
 	
 func _process(delta: float) -> void:
-	pathfollower.progress_ratio += (speed * delta)
 	if pathfollower.progress_ratio == 1:
+		Game.health -= 2
 		queue_free()
 		
 	if health <= 0:
+		Game.gold += 5
+		_death()
+
+func _death():
 		get_parent().queue_free()

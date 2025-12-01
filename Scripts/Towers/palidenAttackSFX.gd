@@ -13,6 +13,7 @@ func _physics_process(delta):
 			#target = pathSpawnerNode.get_child(i).get_child(0).get_child(0).global_position
 			#
 	if !target :
+		queue_free()
 		return
 	velocity = global_position.direction_to(target.global_position) * speed
 	
@@ -23,7 +24,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		body.health -= SpellDamage
-		print (body.name)
+		#print (body.name)
 		queue_free()
 	
 

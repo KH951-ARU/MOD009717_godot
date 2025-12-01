@@ -1,9 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://dty4hitb1logn"]
+[gd_scene load_steps=8 format=3 uid="uid://dty4hitb1logn"]
 
 [ext_resource type="Theme" uid="uid://ccpq0r7w7nl7l" path="res://General Assets/menu assets/Menu.tres" id="1_nexes"]
 [ext_resource type="PackedScene" uid="uid://dcerp4c5ulo7q" path="res://GUI/Tower (ranger)panel.tscn" id="2_i10yr"]
 [ext_resource type="PackedScene" uid="uid://bsq7kk354xrjo" path="res://GUI/Tower (Knight)panel.tscn" id="3_4qblt"]
 [ext_resource type="PackedScene" uid="uid://wi067evsxp0m" path="res://GUI/Tower (Paliden)panel.tscn" id="4_3qth6"]
+
+[sub_resource type="GDScript" id="GDScript_3qth6"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	self.text = \"Gate Health :\" + str(Game.health)
+"
+
+[sub_resource type="GDScript" id="GDScript_32pe8"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	self.text = \"Gold : \" + str(Game.gold)
+"
+
+[sub_resource type="GDScript" id="GDScript_lrvvx"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	self.text = \"Round:\" + str(Game.Round)
+"
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -46,3 +88,25 @@ layout_mode = 2
 
 [node name="PalidenTower" parent="Panel/FlowContainer" instance=ExtResource("4_3qth6")]
 layout_mode = 2
+
+[node name="Health" type="Label" parent="."]
+offset_left = 152.0
+offset_right = 647.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 72
+text = "GATE HEALTH:"
+script = SubResource("GDScript_3qth6")
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 776.0
+offset_right = 1040.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 72
+text = "GOLD :"
+script = SubResource("GDScript_32pe8")
+
+[node name="Round" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Round: "
+script = SubResource("GDScript_lrvvx")

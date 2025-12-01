@@ -24,8 +24,8 @@ func _process(delta: float) -> void:
 
 func _on_tower_body_entered(body):
 	tracePath = body
-	print("enemry entered")
-	print(body)
+	#print("enemry entered")
+	#print(body)
 	if body is Enemy  :
 		#var tempArray = []
 		#
@@ -65,6 +65,7 @@ func _on_tower_body_exited(body: Node2D):
 	pass
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: #click down on upgrade button
+	print("input Event launched")
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var towerpath = get_tree().get_root().get_node("Level 1/Tower")
 		for i in towerpath.get_child_count():
@@ -76,17 +77,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_range_pressed() -> void:
 	range += 50
-	print(range)
+	#print(range)
 
 
 func _on_attack_speed_pressed() -> void:
 	projectileSpeed += 50 
-	print (projectileSpeed)
+	#print (projectileSpeed)
 
 
 func _on_power_pressed() -> void:
 	SpellDamage += 5
-	print(SpellDamage) 
+	#print(SpellDamage) 
 
 func update_Upgrade_pannel():
 	#Upgrades text var 

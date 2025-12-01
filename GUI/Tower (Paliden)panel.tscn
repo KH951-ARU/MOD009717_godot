@@ -16,4 +16,12 @@ position = Vector2(25, 25)
 scale = Vector2(0.961538, 0.943396)
 texture = ExtResource("3_7opxk")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 31.0
+offset_right = 41.0
+offset_bottom = 54.0
+text = "450"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -7,4 +7,5 @@ script = ExtResource("1_dyct3")
 EnemyIndex = 3
 amount = 5
 time = 10.0
+WaveDelay = 30.0
 metadata/_custom_type_script = "uid://cten2b3pqjcca"

@@ -16,39 +16,60 @@ var sequneceIndex = 0
 @export var waves: Array[Wave]
 @export var Nextwave: int = 1
 var enermyCount
+@export var ui: PackedScene
 func spawn_next_waves():
 	var N0_waves = waves.size()
 	statusSpawning = true
-	if  statusSpawning == true:
+	if statusSpawning == true:
 		print ("wave spawing")
 		print("____" , statusSpawning)
 		print("____" , currentWave)
 		print("____" , spawnerIndex)
 		print("____" , N0_waves)
 		print("____" , wavecompleted)
-		#print("____" , enermyCount)
-		#_amountCheck()
-		
-		
-	if statusSpawning == false :
+	#print("____" , enermyCount)
+	#_amountCheck()
+
+	if statusSpawning == false:
 		print("paused spawing")
+		return
+
+	statusSpawning = true
+	emit_signal("wave_changed", currentWave)
+
+	# WAIT for all enemies in this sequence to spawn
+	await spawn_unit(
+		waves[spawnerIndex].enemy_sequneces[sequneceIndex].EnemyIndex,
+		waves[spawnerIndex].enemy_sequneces[sequneceIndex].time,
+		waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount,
+		waves[spawnerIndex].enemy_sequneces[sequneceIndex].WaveDelay)
+
+# Now the wave is actually completed
+	wavecompleted = true
+	_waveOver()
+	wavecompleted = false
+
+	if statusSpawning == false:
+		await get_tree().create_timer(60).timeout
 		
 		
 		return
-		if currentWave >= N0_waves:
-			statusWin = true
 	
 	statusSpawning = true
 	emit_signal('wave_changed', currentWave)
 	#for horde in waves[currentWave].enemy_sequneces[sequneceIndex]:
-	spawn_unit(waves[spawnerIndex].enemy_sequneces[sequneceIndex].EnemyIndex, waves[spawnerIndex].enemy_sequneces[sequneceIndex].time,waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount)
+	spawn_unit(waves[spawnerIndex].enemy_sequneces[sequneceIndex].EnemyIndex, waves[spawnerIndex].enemy_sequneces[sequneceIndex].time,waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount,waves[spawnerIndex].enemy_sequneces[sequneceIndex].WaveDelay)
+	
+	if spawnerIndex >= waves.size():
+		print("no more waves")
+		statusWin = true
+		return
 	
 	
-	
-	wavecompleted = true
 	
 	if statusSpawning == false :
-		await get_tree().create_timer(60).timeout
+		await get_tree().create_timer(5).timeout
+		
 		
 
 func _amountCheck():
@@ -62,21 +83,22 @@ func _GameOverWin():
 func _GameOverLoss():
 	statusWin = false
 
-#func _NextWave():
-	#Game.Round += 1
-	#
-	#Nextwave += 1
-	#currentWave += 1
-	#spawnerIndex += 1
-#
-#func _waveOver():
-	#
-	#if wavecompleted == true:
-		#_NextWave()
-		#wavecompleted = false
-	#if wavecompleted == false:
-		#pass
-		
+
+
+func _NextWave():
+	_endGame()
+	var maxWaves = waves.size()
+	if spawnerIndex + 1 >= maxWaves:
+		print("no more waves")
+		statusWin = true 
+		return
+
+func _waveOver():
+	if wavecompleted == true:
+		_NextWave()
+		wavecompleted = false
+	
+	
 
 func _Resetwave():
 	currentWave = 0
@@ -84,8 +106,8 @@ func _Resetwave():
 	await get_tree().create_timer(20).timeout
 
 
-func spawn_unit(enemy_index, time, amount):
-	for i in amount:
+func spawn_unit(enemy_index, time, amount, WaveDelay):
+	for i in range(amount):
 		if enemy_index == 1:
 			temp = Goblin.instantiate()
 		elif enemy_index == 2:
@@ -95,7 +117,22 @@ func spawn_unit(enemy_index, time, amount):
 		add_child(temp)
 		await get_tree().create_timer(time).timeout
 		
+	var maxWaves = waves.size()
+	if spawnerIndex + 1 >= maxWaves:
+		print("no more waves")
+		statusWin = true 
+		return
 
 
 func  _endGame():
-	pass
+	if Game.Round == 7:
+		await get_tree().create_timer(5).timeout
+		Game.Round = 6 
+		print("game over")
+		ui.winscreen.visible()
+	else:
+		Game.Round += 1
+		Nextwave += 1
+		currentWave += 1
+		spawnerIndex += 1
+		

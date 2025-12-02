@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemySequence" load_steps=2 format=3 uid="uid://daav76onpmkr7"]
 
-[ext_resource type="Script" uid="uid://cten2b3pqjcca" path="res://Scripts/Wave (system & control)/EnemySequence.gd" id="1_adlew"]
+[ext_resource type="Script" uid="uid://cten2b3pqjcca" path="res://Scripts/Wave (system & control)/V1/EnemySequence.gd" id="1_adlew"]
 
 [resource]
 script = ExtResource("1_adlew")

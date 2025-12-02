@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://2v6tdamvaa7a"]
 
-[ext_resource type="Script" uid="uid://dfghb2todbipe" path="res://Scripts/Wave (system & control)/WaveSpanwer.gd" id="1_74rb2"]
+[ext_resource type="Script" uid="uid://dfghb2todbipe" path="res://Scripts/Wave (system & control)/V1/WaveSpanwer.gd" id="1_74rb2"]
 [ext_resource type="PackedScene" uid="uid://dkqrk7qasfguf" path="res://General Assets/Enermies/enermies/Goblin.tscn" id="2_tnwue"]
 [ext_resource type="PackedScene" uid="uid://bpmvokoprrd4e" path="res://General Assets/Enermies/enermies/skeleton.tscn" id="3_ehbnu"]
 [ext_resource type="PackedScene" uid="uid://cvbbbt5j7ybt7" path="res://General Assets/Enermies/enermies/Beholder.tscn" id="4_lndfe"]
-[ext_resource type="Script" uid="uid://oi7o3nujy2r1" path="res://Scripts/Wave (system & control)/wave.gd" id="5_2254r"]
-[ext_resource type="Resource" uid="uid://vfreotj6qc5l" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W1.tres" id="6_nouyu"]
-[ext_resource type="Resource" uid="uid://df6q3byefvi6" path="res://Scripts/Wave (system & control)/Waves (format _level-wave)/L1W2.tres" id="7_pp3rn"]
+[ext_resource type="Script" uid="uid://oi7o3nujy2r1" path="res://Scripts/Wave (system & control)/V1/wave.gd" id="5_2254r"]
+[ext_resource type="Resource" uid="uid://vfreotj6qc5l" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W1.tres" id="6_nouyu"]
+[ext_resource type="Resource" uid="uid://df6q3byefvi6" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W2.tres" id="7_pp3rn"]
 
 [sub_resource type="Curve2D" id="Curve2D_t3muv"]
 _data = {

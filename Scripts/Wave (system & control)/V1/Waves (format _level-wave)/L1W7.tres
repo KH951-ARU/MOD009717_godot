@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=4 format=3 uid="uid://dpnld8vfkoa3n"]
+
+[ext_resource type="Script" uid="uid://cten2b3pqjcca" path="res://Scripts/Wave (system & control)/V1/EnemySequence.gd" id="1_ttp85"]
+[ext_resource type="Script" uid="uid://oi7o3nujy2r1" path="res://Scripts/Wave (system & control)/V1/wave.gd" id="2_h5qaf"]
+[ext_resource type="Resource" uid="uid://c5wpsf5g66552" path="res://Scripts/Wave (system & control)/V1/Enemy Sequencies/L1W7 SEQ.tres" id="2_wkfkt"]
+
+[resource]
+script = ExtResource("2_h5qaf")
+enemy_sequneces = Array[ExtResource("1_ttp85")]([ExtResource("2_wkfkt")])
+metadata/_custom_type_script = "uid://oi7o3nujy2r1"

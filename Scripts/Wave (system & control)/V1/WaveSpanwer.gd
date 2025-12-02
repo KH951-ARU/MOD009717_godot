@@ -6,53 +6,78 @@ class_name SpawnerSystem
 @export var Beholder : PackedScene
 var temp
 @export var currentWave = 0
-var status = 'idle'
+@export var statusSpawning = false
+@export var statusWin = false
 signal wave_changed(int)
-
+var wavecompleted : bool = false
 
 @export var spawnerIndex = 0
 var sequneceIndex = 0
 @export var waves: Array[Wave]
+@export var Nextwave: int = 1
 
 
 func spawn_next_waves():
 	var N0_waves = waves.size()
-	if  status == 'spawning':
+	statusSpawning = true
+	if  statusSpawning == true:
 		print ("wave spawing")
-		print("____" +status)
-		print("____" +currentWave)
-		print("____" +N0_waves)
-		currentWave += 1
+		print("____" , statusSpawning)
+		print("____" , currentWave)
+		print("____" , spawnerIndex)
+		print("____" , N0_waves)
+		print("____" , wavecompleted)
+		
+		
+		
+	if statusSpawning == false :
+		print("paused spawing")
+		
 		
 		return
-		if currentWave > N0_waves:
-			status = "Win"
+		if currentWave >= N0_waves:
+			statusWin = true
 	
-	status = 'spawning'
+	statusSpawning = true
 	emit_signal('wave_changed', currentWave)
 	#for horde in waves[currentWave].enemy_sequneces[sequneceIndex]:
 	spawn_unit(waves[spawnerIndex].enemy_sequneces[sequneceIndex].EnemyIndex, waves[spawnerIndex].enemy_sequneces[sequneceIndex].time,waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount)
-	status = 'idle'
-	currentWave += 1
-	if status == 'spawning':
-		status = 'idle'
-		spawnerIndex += 1
-		Game.Round += 1
-		await get_tree().create_timer(10).timeout
+	
+	
+	
+	wavecompleted = true
+	
+	if statusSpawning == false :
+		await get_tree().create_timer(60).timeout
 		
+
+
+ 
 func _GameOverWin():
-	status = "Win"
+	statusWin = true
 
 func _GameOverLoss():
-	status = "Game over"
+	statusWin = false
+
+func _NextWave():
+	Game.Round += 1
+	
+	Nextwave += 1
+	currentWave += 1
+	spawnerIndex += 1
+
+func _waveOver():
+	
+	if wavecompleted == true:
+		_NextWave()
+		wavecompleted = false
+	if wavecompleted == false:
+		pass
+		
 
 func _Resetwave():
 	currentWave = 0
-	#print("5")
-	#print("4")
-	#print("3")
-	#print("2")
-	#print("1")
+
 	await get_tree().create_timer(20).timeout
 
 
@@ -67,14 +92,7 @@ func spawn_unit(enemy_index, time, amount):
 		add_child(temp)
 		await get_tree().create_timer(time).timeout
 		
-func _unhandled_input(_event):
-	if  Input.is_action_just_pressed('Test'):
-		spawn_next_waves()
+
 
 func  _endGame():
-	if status == "Game over" or status == " Win":
-		status == "Dead"
-		if status == "Dead":
-			currentWave = null
-			spawnerIndex = null
-			
+	pass

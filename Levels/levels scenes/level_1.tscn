@@ -1,12 +1,18 @@
-[gd_scene load_steps=9 format=4 uid="uid://c1nmhi74l2d1w"]
+[gd_scene load_steps=15 format=4 uid="uid://c1nmhi74l2d1w"]
 
 [ext_resource type="TileSet" uid="uid://bgdgdaitscbig" path="res://General Assets/TDSetup/tileassets/level_1_tileMap.tres" id="1_d6xrh"]
 [ext_resource type="Script" uid="uid://beqoj1paem51p" path="res://Scripts/Level/path_spawner.gd" id="2_d6xrh"]
 [ext_resource type="PackedScene" uid="uid://dkqrk7qasfguf" path="res://General Assets/Enermies/enermies/Goblin.tscn" id="3_v0n0d"]
 [ext_resource type="PackedScene" uid="uid://2v6tdamvaa7a" path="res://Levels/Level assets/Level 1 path.tscn" id="3_xapvs"]
 [ext_resource type="Script" uid="uid://oi7o3nujy2r1" path="res://Scripts/Wave (system & control)/V1/wave.gd" id="5_nfc5j"]
+[ext_resource type="Resource" uid="uid://df6q3byefvi6" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W2.tres" id="6_hygg8"]
 [ext_resource type="PackedScene" uid="uid://cus8os27gf26v" path="res://GUI/pause_menu.tscn" id="7_i8lqa"]
 [ext_resource type="Script" uid="uid://co036lyi2m8hf" path="res://Scripts/Level/pause.gd" id="8_5cntx"]
+[ext_resource type="Resource" uid="uid://vfreotj6qc5l" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W1.tres" id="9_5cntx"]
+[ext_resource type="Resource" uid="uid://c2lw30u4uxo25" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W3.tres" id="10_8eyy0"]
+[ext_resource type="Resource" uid="uid://b2ud5smhku63r" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W4.tres" id="11_0pbd5"]
+[ext_resource type="Resource" uid="uid://cb6j0cb3uafbb" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W5.tres" id="12_hmf6v"]
+[ext_resource type="Resource" uid="uid://cpjvi3b6pk0vw" path="res://Scripts/Wave (system & control)/V1/Waves (format _level-wave)/L1W6.tres" id="13_devep"]
 [ext_resource type="PackedScene" uid="uid://dty4hitb1logn" path="res://GUI/ui.tscn" id="17_0pbd5"]
 
 [node name="Level 1" type="Node2D" node_paths=PackedStringArray("pausesyst")]
@@ -60,7 +66,7 @@ position = Vector2(17, -9)
 Goblin = null
 Sketelon = null
 Beholder = null
-waves = Array[ExtResource("5_nfc5j")]([])
+waves = Array[ExtResource("5_nfc5j")]([ExtResource("9_5cntx"), ExtResource("6_hygg8"), ExtResource("10_8eyy0"), ExtResource("11_0pbd5"), ExtResource("12_hmf6v"), ExtResource("13_devep")])
 
 [node name="Tower" type="Node2D" parent="." groups=["tower"]]
 

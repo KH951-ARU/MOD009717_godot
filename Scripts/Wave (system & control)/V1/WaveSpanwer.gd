@@ -15,8 +15,7 @@ var wavecompleted : bool = false
 var sequneceIndex = 0
 @export var waves: Array[Wave]
 @export var Nextwave: int = 1
-
-
+var enermyCount
 func spawn_next_waves():
 	var N0_waves = waves.size()
 	statusSpawning = true
@@ -27,7 +26,7 @@ func spawn_next_waves():
 		print("____" , spawnerIndex)
 		print("____" , N0_waves)
 		print("____" , wavecompleted)
-		
+		print("____" , enermyCount)
 		
 		
 	if statusSpawning == false :
@@ -51,7 +50,10 @@ func spawn_next_waves():
 		await get_tree().create_timer(60).timeout
 		
 
-
+func _amountCheck():
+	enermyCount == waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount
+	_waveOver()
+	pass
  
 func _GameOverWin():
 	statusWin = true

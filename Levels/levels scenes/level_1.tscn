@@ -63,9 +63,6 @@ autostart = true
 
 [node name="Path2D" parent="PathSpawner" instance=ExtResource("3_xapvs")]
 position = Vector2(17, -9)
-Goblin = null
-Sketelon = null
-Beholder = null
 waves = Array[ExtResource("5_nfc5j")]([ExtResource("9_5cntx"), ExtResource("6_hygg8"), ExtResource("10_8eyy0"), ExtResource("11_0pbd5"), ExtResource("12_hmf6v"), ExtResource("13_devep")])
 
 [node name="Tower" type="Node2D" parent="." groups=["tower"]]

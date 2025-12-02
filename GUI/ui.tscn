@@ -106,7 +106,10 @@ text = "GOLD :"
 script = SubResource("GDScript_32pe8")
 
 [node name="Round" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 336.0
+offset_top = 80.0
+offset_right = 447.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 30
 text = "Round: "
 script = SubResource("GDScript_lrvvx")

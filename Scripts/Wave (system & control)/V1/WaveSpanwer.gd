@@ -26,7 +26,8 @@ func spawn_next_waves():
 		print("____" , spawnerIndex)
 		print("____" , N0_waves)
 		print("____" , wavecompleted)
-		print("____" , enermyCount)
+		#print("____" , enermyCount)
+		#_amountCheck()
 		
 		
 	if statusSpawning == false :
@@ -52,7 +53,7 @@ func spawn_next_waves():
 
 func _amountCheck():
 	enermyCount == waves[spawnerIndex].enemy_sequneces[sequneceIndex].amount
-	_waveOver()
+	#_waveOver()
 	pass
  
 func _GameOverWin():
@@ -61,20 +62,20 @@ func _GameOverWin():
 func _GameOverLoss():
 	statusWin = false
 
-func _NextWave():
-	Game.Round += 1
-	
-	Nextwave += 1
-	currentWave += 1
-	spawnerIndex += 1
-
-func _waveOver():
-	
-	if wavecompleted == true:
-		_NextWave()
-		wavecompleted = false
-	if wavecompleted == false:
-		pass
+#func _NextWave():
+	#Game.Round += 1
+	#
+	#Nextwave += 1
+	#currentWave += 1
+	#spawnerIndex += 1
+#
+#func _waveOver():
+	#
+	#if wavecompleted == true:
+		#_NextWave()
+		#wavecompleted = false
+	#if wavecompleted == false:
+		#pass
 		
 
 func _Resetwave():
